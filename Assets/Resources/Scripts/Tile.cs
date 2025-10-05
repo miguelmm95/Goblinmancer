@@ -99,7 +99,7 @@ public class Tile : MonoBehaviour
             }
             GameManager.Instance.RemoveBodies(_demolishCost.bodyPrice);
             GameManager.Instance.AddBlood(-_demolishCost.bloodPrice);
-            Destroy(_currentBuilding); // TODO: Add cost logic for trees
+            Destroy(_currentBuilding.gameObject);
             AudioManager.instance.PlayOneShot(_demolishSound, transform.position);
         }
         _currentBuilding = null;
