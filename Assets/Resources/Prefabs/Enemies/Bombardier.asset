@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bombardier
   m_EditorClassIdentifier: Assembly-CSharp::RoundEnemy
   enemyUnit: {fileID: 2577120941314641979, guid: cb950e8e25b431f44b1eae7c8151f505, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: c45d1a68377a2c34e819d243da8bd3a8, type: 3}

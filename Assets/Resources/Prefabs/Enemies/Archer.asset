@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Archer
   m_EditorClassIdentifier: Assembly-CSharp::RoundEnemy
   enemyUnit: {fileID: 4035190016762269728, guid: 37bac6987c8960843beecb0b5e0be348, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2e25d3f19f08ab348bcd226fcb884c0e, type: 3}

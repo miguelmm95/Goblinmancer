@@ -40,7 +40,7 @@ public class NextRoundMenu : BaseMenu
             iconObj.transform.localPosition += Vector3.up * iconSpacing * fixedEnemyIcons.Count;
             var iconImage = iconObj.GetComponent<Image>();
             if (fixedEnemy.enemy.icon != null)
-                iconImage.sprite = fixedEnemy.enemy.icon.sprite;
+                iconImage.sprite = fixedEnemy.enemy.icon;
             var text = iconObj.GetComponentInChildren<TextMeshProUGUI>();
             text.text = "x" + fixedEnemy.amount.ToString();
             fixedEnemyIcons.Add(iconImage);
@@ -51,7 +51,7 @@ public class NextRoundMenu : BaseMenu
             iconObj.transform.localPosition += Vector3.up * iconSpacing * randomEnemyAmount;
             var iconImage = iconObj.GetComponent<Image>();
             if (randomEnemy.enemy.icon != null)
-                iconImage.sprite = randomEnemy.enemy.icon.sprite;
+                iconImage.sprite = randomEnemy.enemy.icon;
             randomEnemyIcons.Add(iconImage);
             randomEnemyAmount++;
         }
