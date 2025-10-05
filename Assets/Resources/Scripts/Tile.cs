@@ -10,7 +10,12 @@ public class Tile : MonoBehaviour
         Buildable,
         Occupied,
         Battlefield,
+        Unused,
     }
+    [SerializeField] private MeshRenderer _meshRenderer;
+    [SerializeField] private Material _buildableMaterial;
+    [SerializeField] private Material _unusedMaterial;
+    [SerializeField] private Material _battlefieldMaterial;
     [SerializeField] private GameObject _highlightEffectGameObject;
     [SerializeField] private Price _demolishCost;
     [SerializeField] private EventReference _constructSound;
@@ -28,6 +33,24 @@ public class Tile : MonoBehaviour
     {
         _currentState = initialState;
         _currentBuilding = initialBuilding;
+        UpdateTileAppearance();
+    }
+
+    public void UpdateTileAppearance()
+    {
+        switch (_currentState)
+        {
+            case TileState.Buildable:
+            case TileState.Occupied:
+                _meshRenderer.material = _buildableMaterial;
+                break;
+            case TileState.Battlefield:
+                _meshRenderer.material = _battlefieldMaterial;
+                break;
+            case TileState.Unused:
+                _meshRenderer.material = _unusedMaterial;
+                break;
+        }
     }
 
     /// <summary>
@@ -52,6 +75,7 @@ public class Tile : MonoBehaviour
         _currentState = TileState.Occupied;
         _currentBuilding.tile = this;
         AudioManager.instance.PlayOneShot(_constructSound, transform.position);
+        UpdateTileAppearance();
         return true;
     }
 
@@ -80,12 +104,14 @@ public class Tile : MonoBehaviour
         }
         _currentBuilding = null;
         _currentState = TileState.Buildable;
+        UpdateTileAppearance();
     }
 
     public void BuildingDestroyed()
     {
         _currentBuilding = null;
         _currentState = TileState.Buildable;
+        UpdateTileAppearance();
     }
 
     /// <summary>

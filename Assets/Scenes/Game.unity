@@ -477,7 +477,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _cameraController: {fileID: 789228130}
-  _treePrefab: {fileID: 6091531865139590403, guid: 80f3166d54a855345867a868917dbb1c, type: 3}
+  _treePrefabs:
+  - {fileID: 5768396592966036065, guid: f7eb3c7a738f70c4f8c4f4f45574f510, type: 3}
+  - {fileID: 1631337441060069394, guid: 3021e22285afc2f46841ac33d4b2e77e, type: 3}
+  - {fileID: 4355695076278482790, guid: bd7f507393162104b82331d3762a800a, type: 3}
+  - {fileID: 2750423038106613431, guid: 14634c439b15bb14fae64e7e58c00c46, type: 3}
+  - {fileID: 4857920813866019695, guid: 7b2e7df29fdbb984fb4dbeff586d7e18, type: 3}
+  - {fileID: 2751259735526802641, guid: da8474e672de4e14aa93b012481daed1, type: 3}
   _portalPrefab: {fileID: 4872608997205124989, guid: 20a80085309e95e41a02eec128f50848, type: 3}
   _portalAnimationDuration: 1
   _timeBetweenSpawns: 0.05

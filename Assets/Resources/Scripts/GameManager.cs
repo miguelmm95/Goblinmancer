@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Hittable Castle => _castle;
     public PhaseEnum CurrentPhase => _currentPhase;
     [SerializeField] CameraController _cameraController;
-    [SerializeField] BaseTower _treePrefab;
+    [SerializeField] BaseTower[] _treePrefabs;
     [SerializeField] GameObject _portalPrefab;
     [SerializeField] float _portalAnimationDuration = 1f;
     [SerializeField] float _timeBetweenSpawns = 0.05f;
@@ -100,17 +100,20 @@ public class GameManager : MonoBehaviour
                 {
                     if (y <= 4 || y >= _mapHeight - 7 || x <= 2)
                     {
-                        Instantiate(_treePrefab, new Vector3(x * _tileSize, 0, y * _tileSize), Quaternion.identity, newTile.transform);
+                        Instantiate(_treePrefabs[Random.Range(0, _treePrefabs.Length)], new Vector3(x * _tileSize, 0, y * _tileSize), Quaternion.identity, newTile.transform);
+                        newTile.InitializeTile(Tile.TileState.Unused);
                     }
-                    if (x <= 5 && (y <= 7 || y >= _mapHeight - 12))
+                    else if (x <= 5 && (y <= 7 || y >= _mapHeight - 12))
                     {
-                        Instantiate(_treePrefab, new Vector3(x * _tileSize, 0, y * _tileSize), Quaternion.identity, newTile.transform);
+                        Instantiate(_treePrefabs[Random.Range(0, _treePrefabs.Length)], new Vector3(x * _tileSize, 0, y * _tileSize), Quaternion.identity, newTile.transform);
+                        newTile.InitializeTile(Tile.TileState.Unused);
                     }
-                    newTile.InitializeTile(Tile.TileState.Battlefield);
+                    else newTile.InitializeTile(Tile.TileState.Battlefield);
+                    
                 }
                 else if (y <= 7 || y >= _mapHeight - 12)
                 {
-                    BaseTower tree = Instantiate(_treePrefab, new Vector3(x * _tileSize, 0, y * _tileSize), Quaternion.identity, newTile.transform);
+                    BaseTower tree = Instantiate(_treePrefabs[Random.Range(0, _treePrefabs.Length)], new Vector3(x * _tileSize, 0, y * _tileSize), Quaternion.identity, newTile.transform);
                     newTile.InitializeTile(Tile.TileState.Occupied, tree);
                 }
                 else newTile.InitializeTile(Tile.TileState.Buildable);
