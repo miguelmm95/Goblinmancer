@@ -52,7 +52,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _SmoothStep: 0.2
+    - _SmoothStep: 1.72
     - _SrcBlend: 1
     - _Surface: 0
     - _WorkflowMode: 1
@@ -60,8 +60,8 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _DarkColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightColor: {r: 9.712712, g: 0, b: 8.011615, a: 1}
+    - _DarkColor: {r: 0.46226418, g: 0.09298013, b: 0.08940014, a: 1}
+    - _LightColor: {r: 11.009915, g: 2.2228744, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4204075705444777727

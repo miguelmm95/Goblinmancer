@@ -300,7 +300,7 @@ MonoBehaviour:
   _cooldownText: {fileID: 3229049489602690624}
   _bodyCostText: {fileID: 6059919309753739527}
   _bloodCostText: {fileID: 2819152213774908702}
-  _spellType: 0
+  _spellType: 2
   _spellSound:
     Guid:
       Data1: -1651957904

@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class ExplosiveProjectile : Projectile
 {
+    [SerializeField] private GameObject _explosionPrefab;
     [SerializeField] protected float _explosionRadius = 5f;
     [SerializeField, Min(0.1f)] float _curvature = 0.5f;
     float a, b, c; // Variables for parabolic equation
@@ -95,6 +96,7 @@ public class ExplosiveProjectile : Projectile
                 hittable.TakeDamage(_damage);
             }
         }
-        Destroy(gameObject);
+        var explosion = Instantiate(_explosionPrefab, targetPosition, Quaternion.identity);
+        Destroy(explosion, 4f);
     }
 }

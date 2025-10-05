@@ -533,8 +533,8 @@ MonoBehaviour:
   - {fileID: 2750423038106613431, guid: 14634c439b15bb14fae64e7e58c00c46, type: 3}
   - {fileID: 4857920813866019695, guid: 7b2e7df29fdbb984fb4dbeff586d7e18, type: 3}
   - {fileID: 2751259735526802641, guid: da8474e672de4e14aa93b012481daed1, type: 3}
-  _portalPrefab: {fileID: 4872608997205124989, guid: 20a80085309e95e41a02eec128f50848, type: 3}
-  _portalAnimationDuration: 1
+  _portalPrefab: {fileID: 624082734911808495, guid: a2d5a0148b78da34d8e4eb4d330e95c5, type: 3}
+  _portalAnimationDuration: 2
   _timeBetweenSpawns: 0.05
   _castle: {fileID: 1402729768}
   _initialResources:

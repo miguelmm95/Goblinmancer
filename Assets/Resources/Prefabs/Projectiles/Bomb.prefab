@@ -57,6 +57,7 @@ MonoBehaviour:
       Data3: 764099465
       Data4: 476886159
     Path: event:/Bomb
+  _explosionPrefab: {fileID: 4686466795568060880, guid: c7e48076fa8d11e44aa7a2ea8b8a1fa9, type: 3}
   _explosionRadius: 7
   _curvature: 0.5
 --- !u!1001 &584992363958619794
