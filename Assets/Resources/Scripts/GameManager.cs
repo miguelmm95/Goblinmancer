@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
                         Instantiate(_treePrefabs[Random.Range(0, _treePrefabs.Length)], new Vector3(x * _tileSize, 0, y * _tileSize), Quaternion.identity, newTile.transform);
                         newTile.InitializeTile(Tile.TileState.Unused);
                     }
-                    else if (x <= 5 && (y <= 7 || y >= _mapHeight - 12))
+                    else if (x <= 5 && (y <= 8 || y >= _mapHeight - 11))
                     {
                         Instantiate(_treePrefabs[Random.Range(0, _treePrefabs.Length)], new Vector3(x * _tileSize, 0, y * _tileSize), Quaternion.identity, newTile.transform);
                         newTile.InitializeTile(Tile.TileState.Unused);
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
                     else newTile.InitializeTile(Tile.TileState.Battlefield);
                     
                 }
-                else if (y <= 7 || y >= _mapHeight - 12)
+                else if (y <= 8 || y >= _mapHeight - 11)
                 {
                     BaseTower tree = Instantiate(_treePrefabs[Random.Range(0, _treePrefabs.Length)], new Vector3(x * _tileSize, 0, y * _tileSize), Quaternion.identity, newTile.transform);
                     newTile.InitializeTile(Tile.TileState.Occupied, tree);
