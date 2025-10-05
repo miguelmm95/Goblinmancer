@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7ed6c3ffa6b8b9e45adfbd58f4428edf
+guid: f2149b706eaad0846827972700379cb7
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Mechagoblin
-    second: {fileID: 2100000, guid: 3823eba4e1fc2ba4a8593774e6dba6c3, type: 2}
+      name: Goblin vampire
+    second: {fileID: 2100000, guid: 72386f4e6d6f8514599f954e903782a3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
