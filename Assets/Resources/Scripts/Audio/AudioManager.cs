@@ -152,6 +152,12 @@ public class AudioManager : MonoBehaviour
         changePhase = true;
 
     }
+
+    public void UpdateGoblinNumber(int goblinNumber, int maxExpectedGoblin)
+    {
+        _ambienceEventInstance.setParameterByName("GoblinNumber", goblinNumber/ maxExpectedGoblin);
+    }
+
     private void CleanUp()
     {
         // stop and release any created instances
