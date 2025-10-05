@@ -135,12 +135,13 @@ public abstract class BaseUnit : Hittable
     /// </summary>
     protected override void Die()
     {
-        _animator.Play("Rest");
-        _animator.Play("Dead");
         if (_dead)
         {
             Debug.LogWarning($"{gameObject.name} is already dead. Die() called again.");
+            return;
         }
+        _animator.Play("Rest");
+        _animator.Play("Dead");
         _dead = true;
     }
 
