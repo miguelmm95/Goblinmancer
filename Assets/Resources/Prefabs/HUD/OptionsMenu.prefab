@@ -1536,19 +1536,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7519319363226357525}
         m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: PlayButtonSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7519319363226357525}
-        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: CloseOptionsMenu
+        m_MethodName: CloseMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1930,10 +1918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9316899a4c9229b45b4e175ad8b47ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  MasterVolumeSlider: {fileID: 7413551551294110120}
-  MusicVolumeSlider: {fileID: 4589375866097323499}
-  AmbienceVolumeSlider: {fileID: 3497131568922227410}
-  SFXVolumeSlider: {fileID: 5270788481868314880}
   _menuInteractionSound:
     Guid:
       Data1: -1270901288
@@ -1941,6 +1925,13 @@ MonoBehaviour:
       Data3: 803502501
       Data4: 2130731895
     Path: event:/ButtonClick
+  _menuTransform: {fileID: 0}
+  _animationDuration: 0.5
+  _closedPosition: {x: 0, y: 0, z: 0}
+  MasterVolumeSlider: {fileID: 7413551551294110120}
+  MusicVolumeSlider: {fileID: 4589375866097323499}
+  AmbienceVolumeSlider: {fileID: 3497131568922227410}
+  SFXVolumeSlider: {fileID: 5270788481868314880}
 --- !u!1 &6049661990214311207
 GameObject:
   m_ObjectHideFlags: 0
