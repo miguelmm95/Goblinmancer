@@ -117,9 +117,9 @@ MonoBehaviour:
   _hastenMultiplier: 1
   paused: 1
   isAlly: 0
-  _damage: 1
+  _damage: 1.5
   _attackCooldown: 1
-  _range: 30
+  _range: 20
   _targetingPriority: 0
   _attackSound:
     Guid:

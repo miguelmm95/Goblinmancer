@@ -224,7 +224,7 @@ Transform:
   m_GameObject: {fileID: 155996395}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.06, y: 0, z: 0.5}
+  m_LocalPosition: {x: 1.06, y: 0, z: -0.017}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -563,6 +563,22 @@ MonoBehaviour:
     FixedEnemiesInRound:
     - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
       amount: 5
+  - RandomEnemiesInRound:
+    - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
+      Probability: 0
+    TotalRandomEnemies: 0
+    FixedEnemiesInRound:
+    - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
+      amount: 5
+    - enemy: {fileID: 11400000, guid: cf46a9e792bef974fac291d5848bb3f2, type: 2}
+      amount: 1
+  - RandomEnemiesInRound: []
+    TotalRandomEnemies: 0
+    FixedEnemiesInRound:
+    - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
+      amount: 6
+    - enemy: {fileID: 11400000, guid: cf46a9e792bef974fac291d5848bb3f2, type: 2}
+      amount: 4
   _freePlay:
     RandomEnemiesInRound:
     - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
@@ -591,7 +607,7 @@ MonoBehaviour:
   _maxBlood: 30
   _zombiePrefab: {fileID: 1818889335017361458, guid: a343a85fa5da0ab449f1537b5171dbf5, type: 3}
   _enemySpawnPoint: {fileID: 110342393}
-  _enemySpawnSize: {x: 30, y: 80}
+  _enemySpawnSize: {x: 30, y: 50}
   _unitPrices:
   - unitType: 0
     unitPrefab: {fileID: 1818889335017361458, guid: a343a85fa5da0ab449f1537b5171dbf5, type: 3}
@@ -601,7 +617,7 @@ MonoBehaviour:
   - unitType: 1
     unitPrefab: {fileID: 8454535446519413816, guid: 7efd604c5c662ef4f996bde3896e2cb6, type: 3}
     price:
-      bodyPrice: 3
+      bodyPrice: 2
       bloodPrice: 0
   - unitType: 2
     unitPrefab: {fileID: 443447381351863103, guid: 51a2ed3177c1bca47866b667130d5963, type: 3}
@@ -991,7 +1007,7 @@ MonoBehaviour:
       Data4: 0
     Path: 
   _capacity: 15
-  _spawnSize: {x: 6, y: 30}
+  _spawnSize: {x: 3, y: 15}
   _unitSpawnPoint: {fileID: 155996396}
 --- !u!1001 &1456060227
 PrefabInstance:

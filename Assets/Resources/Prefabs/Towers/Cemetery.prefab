@@ -71,7 +71,7 @@ MonoBehaviour:
       Data4: -392058597
     Path: event:/SelectBuilding
   _capacity: 20
-  _spawnSize: {x: 15, y: 20}
+  _spawnSize: {x: 7.5, y: 10}
   _unitSpawnPoint: {fileID: 0}
 --- !u!1001 &5578627963647193060
 PrefabInstance:

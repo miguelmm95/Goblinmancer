@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Menu.bank
   Name: Menu
   StudioPath: bank:/Menu
-  lastModified: 638953056172895136
+  lastModified: 638953026128888757
   FileSizes: []
   Exists: 1
 --- !u!114 &-6177662842237740234
@@ -247,7 +247,7 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638952948959182273
+  lastModified: 638952932867231973
   FileSizes:
   - Name: 
     Value: 2368
@@ -441,7 +441,7 @@ MonoBehaviour:
   - {fileID: 2556957349932939823}
   StringsBanks:
   - {fileID: -2214693809878984621}
-  cacheTime: 638953056172895136
+  cacheTime: 638953037602946132
   cacheVersion: 131632
 --- !u!114 &766853746913859850
 MonoBehaviour:
@@ -537,7 +537,7 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638951116867511837
+  lastModified: 638952932867206907
   FileSizes: []
   Exists: 1
 --- !u!114 &2983696047809228781
@@ -933,7 +933,7 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Game.bank
   Name: Game
   StudioPath: bank:/Game
-  lastModified: 638953056172849556
+  lastModified: 638953037602946132
   FileSizes: []
   Exists: 1
 --- !u!114 &8894687861851052419

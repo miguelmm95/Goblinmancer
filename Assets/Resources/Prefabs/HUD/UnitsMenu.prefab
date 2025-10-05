@@ -1053,7 +1053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030518, y: 197.74}
+  m_AnchoredPosition: {x: 207, y: 197.74}
   m_SizeDelta: {x: 450, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1312371371143256836
@@ -1205,7 +1205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200.76004, y: 197.74}
+  m_AnchoredPosition: {x: 0, y: 197.74}
   m_SizeDelta: {x: 450, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4026238774630644313
@@ -1340,7 +1340,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.5
+  m_fontSize: 46.45
   m_fontSizeBase: 42.9
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2193,10 +2193,10 @@ RectTransform:
   - {fileID: 2063174998839667049}
   m_Father: {fileID: 6285756199870043845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -22}
-  m_SizeDelta: {x: -905.33923, y: -81.3392}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 200.76, y: -22}
+  m_SizeDelta: {x: 160.66077, y: 160.6608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3693198383633390710
 CanvasRenderer:
@@ -2930,13 +2930,13 @@ RectTransform:
   - {fileID: 7546000248481069283}
   - {fileID: 2666853538547227318}
   - {fileID: 2233591652447988717}
-  - {fileID: 5023514752284154416}
   - {fileID: 6324798200529852238}
+  - {fileID: 5023514752284154416}
   - {fileID: 7693339004032151399}
   - {fileID: 6598725636767417450}
   - {fileID: 512579367647129436}
-  - {fileID: 6651718525907281372}
   - {fileID: 1076289209935695065}
+  - {fileID: 6651718525907281372}
   - {fileID: 473651461850175782}
   m_Father: {fileID: 1128391151161052402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3746,7 +3746,7 @@ MonoBehaviour:
 
 
     Melee unit. Every few attacks does a high damage bite that
-    heals your castle and generates blood'
+    heals himself and generates blood'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e8ae83efe2461cc4c8829849f44a9e8c, type: 2}
   m_sharedMaterial: {fileID: 3504912239881115505, guid: e8ae83efe2461cc4c8829849f44a9e8c, type: 2}
@@ -3992,10 +3992,10 @@ RectTransform:
   - {fileID: 9156142032269430110}
   m_Father: {fileID: 6285756199870043845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 200.76001, y: -22}
-  m_SizeDelta: {x: -905.33923, y: -81.3392}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -22}
+  m_SizeDelta: {x: 160.66077, y: 160.6608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5874566758595219835
 CanvasRenderer:
@@ -4190,10 +4190,10 @@ RectTransform:
   - {fileID: 4133762180238903074}
   m_Father: {fileID: 4774034171500671908}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -22}
-  m_SizeDelta: {x: -905.33923, y: -81.3392}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 200.76, y: -22}
+  m_SizeDelta: {x: 160.66077, y: 160.6608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8543556392027562544
 CanvasRenderer:
@@ -5106,10 +5106,10 @@ RectTransform:
   - {fileID: 8150931101378891491}
   m_Father: {fileID: 4774034171500671908}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 200.76001, y: -22}
-  m_SizeDelta: {x: -905.33923, y: -81.3392}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -22}
+  m_SizeDelta: {x: 160.66077, y: 160.6608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6625843247237912217
 CanvasRenderer:
@@ -5672,8 +5672,8 @@ RectTransform:
   - {fileID: 1922174034128390021}
   - {fileID: 657553866769440762}
   - {fileID: 9053685771158531533}
-  - {fileID: 1024967872426700600}
   - {fileID: 100779302420544934}
+  - {fileID: 1024967872426700600}
   - {fileID: 3192557864449169227}
   m_Father: {fileID: 1128391151161052402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6090,7 +6090,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.5
+  m_fontSize: 46.45
   m_fontSizeBase: 42.9
   m_fontWeight: 400
   m_enableAutoSizing: 1
