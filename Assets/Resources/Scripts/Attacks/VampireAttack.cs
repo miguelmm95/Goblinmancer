@@ -13,7 +13,7 @@ public class VampireAttack : BaseAttack
         if (target == null) return;
         
         target.TakeDamage(_damage);
-        GameManager.Instance.Castle.TakeDamage(-_healingPerHit); // Heal the castle (negative damage)
+        GameManager.Instance.GetClosestAllyUnit(transform.position).TakeDamage(-_damage * _healingPerHit); // Heal the vampire
         GameManager.Instance.AddBlood(_bloodPerHit);
     }
 }
