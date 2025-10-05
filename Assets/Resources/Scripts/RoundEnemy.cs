@@ -5,5 +5,5 @@ using UnityEngine.UI;
 public class RoundEnemy : ScriptableObject
 {
     public EnemyUnit enemyUnit;
-    public Image icon;
+    public Sprite icon;
 }

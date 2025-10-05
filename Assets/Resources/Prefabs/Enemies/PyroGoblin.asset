@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PyroGoblin
   m_EditorClassIdentifier: Assembly-CSharp::RoundEnemy
   enemyUnit: {fileID: 1939611623146773574, guid: 20dc24c2a8ee40a4b8a5c49b3ee9c081, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 8f7b94592a0b9cc4c965533df55d5a00, type: 3}
