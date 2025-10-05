@@ -129,7 +129,7 @@ MonoBehaviour:
       Data4: 2130731895
     Path: event:/ButtonClick
   _capacity: 20
-  _spawnRadius: 5
+  _spawnSize: {x: 15, y: 20}
   _unitSpawnPoint: {fileID: 0}
 --- !u!1 &3907828088078408485
 GameObject:

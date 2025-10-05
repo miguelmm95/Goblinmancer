@@ -11,7 +11,7 @@ using FMODUnity;
 public class AllyUnit : BaseUnit
 {
     [HideInInspector] public Cemetery cemetery;
-    [HideInInspector] public float spawnRadius = 5f;
+    [HideInInspector] public Vector2 spawnSize = new Vector2(15f, 15f); // Size of the spawn area
     [SerializeField] public AllyUnitsEnum unitType; // Type of the unit, used for identifying it
     [SerializeField] EventReference _spawnSound;
 
@@ -24,9 +24,9 @@ public class AllyUnit : BaseUnit
 
         AudioManager.instance.PlayOneShot(_spawnSound, transform.position);
         transform.DOMove(cemetery.UnitSpawnPoint.position + new Vector3(
-            Random.Range(-spawnRadius, spawnRadius),
+            Random.Range(-spawnSize.x * 0.5f, spawnSize.x * 0.5f),
             0,
-            Random.Range(-spawnRadius, spawnRadius)
+            Random.Range(-spawnSize.y * 0.5f, spawnSize.y * 0.5f)
         ), _spawnTweenDuration).SetEase(Ease.InOutCubic);
     }
 
@@ -70,9 +70,9 @@ public class AllyUnit : BaseUnit
             attack._hastenMultiplier = 1f;
         }
         transform.DOMove(cemetery.UnitSpawnPoint.position + new Vector3(
-            Random.Range(-spawnRadius, spawnRadius),
+            Random.Range(-spawnSize.x * 0.5f, spawnSize.x * 0.5f),
             0,
-            Random.Range(-spawnRadius, spawnRadius)
+            Random.Range(-spawnSize.y * 0.5f, spawnSize.y * 0.5f)
         ), _spawnTweenDuration).SetEase(Ease.InOutCubic);
     }
 

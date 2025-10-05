@@ -7,12 +7,13 @@ using UnityEngine;
 /// </summary>
 public class Cemetery : BaseTower
 {
+    public Vector2 SpawnSize => _spawnSize;
     public int Capacity => _capacity;
     public List<AllyUnit> Units => _units;
     public Transform UnitSpawnPoint => _unitSpawnPoint;
     private List<AllyUnit> _units = new List<AllyUnit>();
     [SerializeField] int _capacity = 20;
-    [SerializeField] float _spawnRadius = 5f;
+    [SerializeField] Vector2 _spawnSize = new Vector2(15f, 15f); // Size of the spawn area
     [SerializeField] private Transform _unitSpawnPoint = null; // Point where units will spawn
 
     /// <summary>
@@ -113,7 +114,8 @@ public class Cemetery : BaseTower
         manager.AddBlood(-unitPrice.price.bloodPrice);
 
         AllyUnit newUnit = Instantiate(unitPrice.unitPrefab, transform.position, Quaternion.identity);
-        newUnit.spawnRadius = _spawnRadius;
+        newUnit.spawnSize = _spawnSize;
+        
         manager.AddAllyUnit(newUnit);
 
         newUnit.transform.DOScale(Vector3.one, 0.5f).From(Vector3.zero).SetEase(Ease.OutBack);

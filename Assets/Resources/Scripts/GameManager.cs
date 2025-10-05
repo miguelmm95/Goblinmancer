@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
     public PhaseEnum CurrentPhase => _currentPhase;
     [SerializeField] CameraController _cameraController;
     [SerializeField] BaseTower _treePrefab;
+    [SerializeField] GameObject _portalPrefab;
+    [SerializeField] float _portalAnimationDuration = 1f;
+    [SerializeField] float _timeBetweenSpawns = 0.05f;
     [SerializeField] private Cemetery _castle;
     [SerializeField] private Price _initialResources;
     [SerializeField] private Tile _tilePrefab;
@@ -146,9 +150,12 @@ public class GameManager : MonoBehaviour
                 {
                     _enemyUnits.Add(Instantiate(
                         roundEnemy.enemy.enemyUnit,
-                        _enemySpawnPoint.position + new Vector3(Random.Range(-_enemySpawnSize.x, _enemySpawnSize.x), 0, Random.Range(-_enemySpawnSize.y, _enemySpawnSize.y)),
+                        _enemySpawnPoint.position + new Vector3(Random.Range(-_enemySpawnSize.x * 0.5f, _enemySpawnSize.x * 0.5f), 0, Random.Range(-_enemySpawnSize.y * 0.5f, _enemySpawnSize.y * 0.5f)),
                         Quaternion.identity
                     ));
+                    _enemyUnits[_enemyUnits.Count - 1].transform.LookAt(_castle.transform);
+                    _enemyUnits[_enemyUnits.Count - 1].transform.localScale = Vector3.zero;
+                    _enemyUnits[_enemyUnits.Count - 1].transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.InOutCubic);
                     break;
                 }
             }
@@ -162,6 +169,9 @@ public class GameManager : MonoBehaviour
                     _enemySpawnPoint.position + new Vector3(Random.Range(-_enemySpawnSize.x, _enemySpawnSize.x), 0, Random.Range(-_enemySpawnSize.y, _enemySpawnSize.y)),
                     Quaternion.identity
                 ));
+                _enemyUnits[_enemyUnits.Count - 1].transform.LookAt(_castle.transform);
+                _enemyUnits[_enemyUnits.Count - 1].transform.localScale = Vector3.zero;
+                _enemyUnits[_enemyUnits.Count - 1].transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.InOutCubic);
             }
         }
         foreach (BaseTower tower in _towers)
@@ -221,38 +231,7 @@ public class GameManager : MonoBehaviour
         }
         _alliedUnits.RemoveAll(unit => unit.Dead);
 
-        foreach (EnemyUnit unit in _enemyUnits)
-        {
-            for (int i = 0; i < unit.BodyReward; i++)
-            {
-                AddBody();
-            }
-            _blood += unit.BloodReward;
-            if (_blood > _maxBlood) _blood = _maxBlood;
-            Destroy(unit.gameObject);
-        }
-        _enemyUnits.Clear();
-
-        foreach (BaseTower tower in _towers)
-        {
-            tower.Unpause();
-            if (tower is AttackingTower)
-            {
-                tower.Pause();
-            }
-        }
-
-        _currentRound++;
-        if (_currentRound < _rounds.Length)
-        {
-            Debug.Log("All rounds completed!");
-        }
-        _currentPhase = PhaseEnum.Build;
-
-        _nextRoundMenu.UpdateEnemyIcons(GetNextRound(), _currentRound + 1);
-
-        ShowHUD();
-        _spellCastingMenu.CloseMenu();
+        StartCoroutine(DoPortalAnimation());
     }
 
     /// <summary>
@@ -502,6 +481,7 @@ public class GameManager : MonoBehaviour
             if (cemetery != null && !cemetery.IsFull())
             {
                 AllyUnit newZombie = Instantiate(_zombiePrefab, cemetery.transform.position, Quaternion.identity);
+                newZombie.spawnSize = cemetery.SpawnSize;
                 added = true;
                 newZombie.ChangeCemetery(cemetery);
                 _alliedUnits.Add(newZombie);
@@ -898,6 +878,55 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private IEnumerator DoPortalAnimation()
+    {
+        foreach (EnemyUnit unit in _enemyUnits)
+        {
+            for (int i = 0; i < unit.BodyReward; i++)
+            {
+                AddBody();
+            }
+            _blood += unit.BloodReward;
+            if (_blood > _maxBlood) _blood = _maxBlood;
+            GameObject portal = Instantiate(_portalPrefab, unit.transform.position, Quaternion.identity);
+            portal.transform.DOScale(Vector3.one, _portalAnimationDuration * 0.5f).From(Vector3.zero).SetEase(Ease.InOutCubic).OnComplete(() =>
+            {
+                unit.transform.DOMove(unit.transform.position + Vector3.down * 10f, _portalAnimationDuration * 0.2f).SetEase(Ease.InOutCubic).onComplete = () =>
+                {
+                    Destroy(unit.gameObject);
+                };
+                
+                portal.transform.DOScale(Vector3.zero, _portalAnimationDuration * 0.5f).SetEase(Ease.InOutCubic).onComplete = () =>
+                {
+                    Destroy(portal);
+                };
+            });
+            yield return new WaitForSeconds(_timeBetweenSpawns);
+        }
+        _enemyUnits.Clear();
+
+        foreach (BaseTower tower in _towers)
+        {
+            tower.Unpause();
+            if (tower is AttackingTower)
+            {
+                tower.Pause();
+            }
+        }
+
+        _currentRound++;
+        if (_currentRound < _rounds.Length)
+        {
+            Debug.Log("All rounds completed!");
+        }
+        _currentPhase = PhaseEnum.Build;
+
+        _nextRoundMenu.UpdateEnemyIcons(GetNextRound(), _currentRound + 1);
+
+        ShowHUD();
+        _spellCastingMenu.CloseMenu();
+    }
+
     private IEnumerator MapSpawnAnimation()
     {
         for (int i = 0; i < _mapWidth; i++)
@@ -922,7 +951,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < _initialResources.bodyPrice; i++)
         {
             AddBody();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(_timeBetweenSpawns);
         }
     }
 }

@@ -400,10 +400,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _cameraController: {fileID: 789228130}
   _treePrefab: {fileID: 6091531865139590403, guid: 80f3166d54a855345867a868917dbb1c, type: 3}
+  _portalPrefab: {fileID: 4872608997205124989, guid: 20a80085309e95e41a02eec128f50848, type: 3}
+  _portalAnimationDuration: 1
+  _timeBetweenSpawns: 0.05
   _castle: {fileID: 1402729768}
   _initialResources:
-    bodyPrice: 100
-    bloodPrice: 100
+    bodyPrice: 200
+    bloodPrice: 500
   _tilePrefab: {fileID: 7562894851678332238, guid: 8ed5b9d31768877409b23bc26bd753f5, type: 3}
   _tileSize: 5
   _mapWidth: 23
@@ -436,12 +439,22 @@ MonoBehaviour:
     - enemy: {fileID: 11400000, guid: 2430d09c8ac374a4d810763211900c48, type: 2}
       Probability: 0.1
     TotalRandomEnemies: 100
-    FixedEnemiesInRound: []
+    FixedEnemiesInRound:
+    - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
+      amount: 0
+    - enemy: {fileID: 11400000, guid: cf46a9e792bef974fac291d5848bb3f2, type: 2}
+      amount: 0
+    - enemy: {fileID: 11400000, guid: e3c617bee53ee7d4a9401c1eda18efb3, type: 2}
+      amount: 0
+    - enemy: {fileID: 11400000, guid: f4d68ebf75c8e6040bf889a5b63e400c, type: 2}
+      amount: 0
+    - enemy: {fileID: 11400000, guid: 2430d09c8ac374a4d810763211900c48, type: 2}
+      amount: 0
   _freePlayEnemyIncreaseRate: 1.1
   _maxBlood: 100
   _zombiePrefab: {fileID: 1818889335017361458, guid: a343a85fa5da0ab449f1537b5171dbf5, type: 3}
   _enemySpawnPoint: {fileID: 110342393}
-  _enemySpawnSize: {x: 10, y: 20}
+  _enemySpawnSize: {x: 30, y: 80}
   _unitPrices:
   - unitType: 0
     unitPrefab: {fileID: 1818889335017361458, guid: a343a85fa5da0ab449f1537b5171dbf5, type: 3}
@@ -821,8 +834,8 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  _capacity: 100
-  _spawnRadius: 15
+  _capacity: 500
+  _spawnSize: {x: 6, y: 30}
   _unitSpawnPoint: {fileID: 155996396}
 --- !u!1001 &1456060227
 PrefabInstance:
