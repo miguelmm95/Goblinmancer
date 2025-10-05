@@ -152,9 +152,7 @@ public class Tile : MonoBehaviour
     /// </summary>
     public void InteractWithTower()
     {
-        Debug.Log("Interacted with " + gameObject.name);
         if (_currentBuilding == null) return;
-        Debug.Log("Interacted with " + gameObject.name + " which has a building: " + _currentBuilding.name);
         _currentBuilding.OnInteract();
     }
 }
