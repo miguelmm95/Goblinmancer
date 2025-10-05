@@ -1548,11 +1548,11 @@ MonoBehaviour:
   _animationDuration: 0.5
   _menuInteractionSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -929158256
+      Data2: 1178558161
+      Data3: -1980706378
+      Data4: -804445486
+    Path: event:/TextPopup
 --- !u!114 &5163133828768753784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1764,11 +1764,11 @@ MonoBehaviour:
   _animationDuration: 0.5
   _menuInteractionSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -929158256
+      Data2: 1178558161
+      Data3: -1980706378
+      Data4: -804445486
+    Path: event:/TextPopup
 --- !u!114 &4772256078640338940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2726,11 +2726,11 @@ MonoBehaviour:
   _animationDuration: 0.5
   _menuInteractionSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -929158256
+      Data2: 1178558161
+      Data3: -1980706378
+      Data4: -804445486
+    Path: event:/TextPopup
 --- !u!114 &2486679358294504013
 MonoBehaviour:
   m_ObjectHideFlags: 0
