@@ -16,6 +16,8 @@ public class SpellUnlockMenu : BaseMenu
     }
     [SerializeField] List<article> _articles = new List<article>();
     [SerializeField] SpellUnlockButton[] _buttons;
+    [SerializeField] TextMeshProUGUI BloodAmountText;
+    [SerializeField] TextMeshProUGUI ZombieAmountText;
     List<SpellPrice> _prices = new List<SpellPrice>();
 
     public void Init(List<SpellPrice> prices)
@@ -48,7 +50,14 @@ public class SpellUnlockMenu : BaseMenu
         Debug.Log("Unlocked spell: " + spellEnumHolder.spellType.ToString());
         GameObject button = GetUnlockButton(spellEnumHolder);
         Debug.Log("Button to destroy: " + (button != null ? button.name : "null"));
+        if(button.TryGetComponent<Popup>(out var popup))
+        {
+            popup.ClosePopup();
+        }
         Destroy(button);
+
+        BloodAmountText.text = GameManager.Instance.GetBlood().ToString() + "/" + GameManager.Instance.GetMaxBlood().ToString();
+        ZombieAmountText.text = GameManager.Instance.GetBodies().ToString() + "/" + GameManager.Instance.GetMaxBodies().ToString();
     }
 
     GameObject GetUnlockButton(SpellEnumHolder spellEnumHolder)
@@ -70,8 +79,11 @@ public class SpellUnlockMenu : BaseMenu
     public override void OpenMenu()
     {
         if (_state == MenuState.Open) return;
-        
+
         base.OpenMenu();
         GameManager.Instance.HideHUD();
+
+        BloodAmountText.text = GameManager.Instance.GetBlood().ToString() + "/" + GameManager.Instance.GetMaxBlood().ToString();
+        ZombieAmountText.text = GameManager.Instance.GetBodies().ToString() + "/" + GameManager.Instance.GetMaxBodies().ToString();
     }
 }

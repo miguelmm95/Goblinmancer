@@ -493,7 +493,6 @@ public class GameManager : MonoBehaviour
             Cemetery cemetery = cemeteries[index];
             if (cemetery != null && !cemetery.IsFull())
             {
-                Debug.Log("Adding body to cemetery: " + cemetery.name + " at " + cemetery.transform.position);
                 AllyUnit newZombie = Instantiate(_zombiePrefab, cemetery.transform.position, Quaternion.identity);
                 added = true;
                 newZombie.ChangeCemetery(cemetery);
@@ -751,7 +750,6 @@ public class GameManager : MonoBehaviour
     public void UnlockSpell(BaseSpell spellPrefab)
     {
         Instantiate(spellPrefab, _spellCastingMenu.transform);
-        _spellCastingMenu.CloseMenu();
     }
 
     /// <summary>

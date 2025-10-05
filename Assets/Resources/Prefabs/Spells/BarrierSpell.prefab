@@ -295,7 +295,6 @@ MonoBehaviour:
   _menuTransform: {fileID: 1563263415339220317}
   _animationDuration: 0.5
   _closedPosition: {x: 0, y: -300, z: 0}
-  _state: 1
   _superOpenOffset: 120
   _castingCost:
     bodyPrice: 3

@@ -24,6 +24,8 @@ public abstract class BaseSpell : BaseMenu
         _bodyCostText.text = _castingCost.bodyPrice.ToString() + " Z";
         _bloodCostText.text = _castingCost.bloodPrice.ToString() + " B";
         _cooldownText.text = "";
+        _state = MenuState.Open;
+        CloseMenu();
     }
 
     /// <summary>
@@ -74,20 +76,6 @@ public abstract class BaseSpell : BaseMenu
     /// <param name="targetPosition"></param>
     protected abstract void Effect(Vector3 targetPosition);
 
-    public override void OpenMenu()
-    {
-        if (_state == MenuState.Open) return;
-
-        _menuTransform.DOLocalMove(Vector3.zero, _animationDuration).SetEase(Ease.OutBack);
-        _state = MenuState.Open;
-    }
-    public override void CloseMenu()
-    {
-        if (_state == MenuState.Closed) return;
-
-        _menuTransform.DOLocalMove(_closedPosition, _animationDuration).SetEase(Ease.OutBack);
-        _state = MenuState.Closed;
-    }
     public void SuperOpen()
     {
         if (_state == MenuState.SuperOpen) return;

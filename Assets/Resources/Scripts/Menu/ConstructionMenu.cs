@@ -21,6 +21,7 @@ public class ConstructionMenu : BaseMenu
     
     void Update()
     {
+        if (_state != MenuState.SuperOpen) return;
         // Update resources display
         ZombieAmountText.text = GameManager.Instance.GetBodies().ToString() + "/" + GameManager.Instance.GetMaxBodies().ToString();
         BloodAmountText.text = GameManager.Instance.GetBlood().ToString() + "/" + GameManager.Instance.GetMaxBlood().ToString();

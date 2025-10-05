@@ -513,6 +513,8 @@ MonoBehaviour:
   - {fileID: 5581786215313352645}
   - {fileID: 1208638526540670079}
   - {fileID: 6742560946048202269}
+  BloodAmountText: {fileID: 6858145897001944724}
+  ZombieAmountText: {fileID: 6122391854749592097}
 --- !u!1 &1198673861244906268
 GameObject:
   m_ObjectHideFlags: 0
