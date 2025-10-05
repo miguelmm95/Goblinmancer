@@ -101,13 +101,13 @@ MonoBehaviour:
     Data4: -804445486
   Banks:
   - {fileID: 715803047852382264}
-  IsStream: 0
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 808
 --- !u!114 &-7763510257370991289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +153,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2009
+--- !u!114 &-7536172106859725544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/GoblinAmbient/GoblinNumber
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: GoblinNumber
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 129727086
+    data2: 3558344571
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-7257358311419971906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,11 +460,12 @@ MonoBehaviour:
   - {fileID: 715803047852382264}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 1
-  Parameters: []
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -7536172106859725544}
   MinDistance: 1
   MaxDistance: 20
-  Length: 30545
+  Length: 163005
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,7 +518,7 @@ MonoBehaviour:
   - {fileID: -4892195224363320645}
   StringsBanks:
   - {fileID: 4270119258077763817}
-  cacheTime: 638952926719089297
+  cacheTime: 638952948959182273
   cacheVersion: 131632
 --- !u!114 &379727500289217172
 MonoBehaviour:
@@ -537,7 +562,7 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Game.bank
   Name: Game
   StudioPath: bank:/Game
-  lastModified: 638952926719089297
+  lastModified: 638952948958817105
   FileSizes: []
   Exists: 1
 --- !u!114 &1499321727392329557
@@ -718,10 +743,10 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638952924326404013
+  lastModified: 638952948959182273
   FileSizes:
   - Name: 
-    Value: 2314
+    Value: 2368
   Exists: 1
 --- !u!114 &4613563521393850495
 MonoBehaviour:
