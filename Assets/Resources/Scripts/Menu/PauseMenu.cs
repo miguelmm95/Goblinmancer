@@ -2,16 +2,15 @@ using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : BaseMenu
 {
     [SerializeField] BaseMenu _optionsMenu;
-    [SerializeField] EventReference _menuInteractionSound;
-    public void OpenMenu()
+    public override void OpenMenu()
     {
         gameObject.SetActive(true);
         Time.timeScale = 0f;
     }
-    public void CloseMenu()
+    public override void CloseMenu()
     {
         Time.timeScale = 1f;
         _optionsMenu.CloseMenu();

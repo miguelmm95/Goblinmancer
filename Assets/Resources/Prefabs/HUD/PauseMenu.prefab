@@ -187,7 +187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39ba02e46a56914b9b76d7d1db458f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
-  _optionsMenu: {fileID: 0}
   _menuInteractionSound:
     Guid:
       Data1: -1270901288
@@ -195,6 +194,10 @@ MonoBehaviour:
       Data3: 803502501
       Data4: 2130731895
     Path: event:/ButtonClick
+  _menuTransform: {fileID: 0}
+  _animationDuration: 0.5
+  _closedPosition: {x: 0, y: 0, z: 0}
+  _optionsMenu: {fileID: 3043905097408609840}
 --- !u!1 &6567600265449176981
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,3 +797,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4803918023912444629, guid: fc18a1e90276795498f59c127e7bdef5, type: 3}
   m_PrefabInstance: {fileID: 4785042237758681381}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3043905097408609840 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7519319363226357525, guid: fc18a1e90276795498f59c127e7bdef5, type: 3}
+  m_PrefabInstance: {fileID: 4785042237758681381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9316899a4c9229b45b4e175ad8b47ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
