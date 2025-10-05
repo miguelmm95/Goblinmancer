@@ -86,7 +86,7 @@ MonoBehaviour:
       Data3: -133462626
       Data4: 1049027934
     Path: event:/GoblinDeath
-  _movementSpeed: 8
+  _movementSpeed: 6
   _cooldownBetweenAttacks: 0.2
   _spawnTweenDuration: 1
   _animator: {fileID: 696278792665245150}
