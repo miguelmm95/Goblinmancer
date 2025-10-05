@@ -8,7 +8,6 @@ public class NextRoundMenu : BaseMenu
 {
     List<Image> fixedEnemyIcons = new List<Image>();
     List<Image> randomEnemyIcons = new List<Image>();
-    int randomEnemyAmount;
 
     [SerializeField] float iconSpacing = 120f;
     [SerializeField] GameObject enemyIconPrefab;
@@ -33,8 +32,8 @@ public class NextRoundMenu : BaseMenu
             Destroy(icon.gameObject);
         }
         randomEnemyIcons.Clear();
-        randomEnemyAmount = 0;
 
+        int randomEnemyAmount = 0;
         foreach (var fixedEnemy in round.FixedEnemiesInRound)
         {
             var iconObj = Instantiate(enemyIconPrefab, fixedEnemyIconParent);
@@ -43,7 +42,7 @@ public class NextRoundMenu : BaseMenu
             if (fixedEnemy.enemy.icon != null)
                 iconImage.sprite = fixedEnemy.enemy.icon.sprite;
             var text = iconObj.GetComponentInChildren<TextMeshProUGUI>();
-            text.text = fixedEnemy.amount.ToString();
+            text.text = "x" + fixedEnemy.amount.ToString();
             fixedEnemyIcons.Add(iconImage);
         }
         foreach (var randomEnemy in round.RandomEnemiesInRound)
@@ -58,7 +57,7 @@ public class NextRoundMenu : BaseMenu
         }
         if (randomEnemyAmount > 0)
         {
-            randomEnemyText.text = "x" + randomEnemyAmount;
+            randomEnemyText.text = "x" + round.TotalRandomEnemies.ToString();
         }
         else
         {

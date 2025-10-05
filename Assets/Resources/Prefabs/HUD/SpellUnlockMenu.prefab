@@ -509,6 +509,16 @@ MonoBehaviour:
   _menuTransform: {fileID: 1012760687577481600}
   _animationDuration: 0.5
   _closedPosition: {x: 2000, y: 0, z: 0}
+  _articles:
+  - spellType: 0
+    bodyPriceText: {fileID: 1117294541369576839}
+    bloodPriceText: {fileID: 3679002170928639158}
+  - spellType: 1
+    bodyPriceText: {fileID: 6668558974996020259}
+    bloodPriceText: {fileID: 5895946829775102549}
+  - spellType: 2
+    bodyPriceText: {fileID: 4988400478009993246}
+    bloodPriceText: {fileID: 8823709369919202722}
   _buttons:
   - {fileID: 5581786215313352645}
   - {fileID: 1208638526540670079}

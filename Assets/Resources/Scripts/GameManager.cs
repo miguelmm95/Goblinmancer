@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform _enemySpawnPoint;
     [SerializeField] Vector2 _enemySpawnSize = new Vector2(40f, 20f);
     [SerializeField] List<AllyUnitPrice> _unitPrices;
-    [SerializeField] List<SpellPrice> _spellPrices;
+    [SerializeField] List<SpellPrice> _spellUnlockPrices;
+    [SerializeField] List<SpellPrice> _spellCastingPrices;
     [SerializeField] List<TowerPrice> _towerPrices;
     [SerializeField] UnitMenu _unitMenu;
     [SerializeField] ConstructionMenu _constructionMenu;
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
 
         _constructionMenu.Init(_towerPrices);
 
-        _spellUnlockMenu.Init(_spellPrices);
+        _spellUnlockMenu.Init(_spellUnlockPrices);
     }
 
     void Update()
@@ -187,7 +188,10 @@ public class GameManager : MonoBehaviour
         }
         foreach (BaseTower tower in _towers)
         {
-            tower.Unpause();
+            if (tower is AttackingTower)
+            {
+                tower.Unpause();
+            }
         }
         _spellCastingMenu.OpenMenu();
     }
@@ -232,6 +236,10 @@ public class GameManager : MonoBehaviour
         foreach (BaseTower tower in _towers)
         {
             tower.Unpause();
+            if (tower is AttackingTower)
+            {
+                tower.Pause();
+            }
         }
 
         _currentRound++;
@@ -655,9 +663,21 @@ public class GameManager : MonoBehaviour
     /// Returns the price of the specified spell.
     /// </summary>
     /// <param name="spellType"></param>
-    public SpellPrice GetSpellPrice(SpellEnum spellType)
+    public SpellPrice GetSpellCastPrice(SpellEnum spellType)
     {
-        foreach (SpellPrice spellPrice in _spellPrices)
+        foreach (SpellPrice spellPrice in _spellCastingPrices)
+        {
+            if (spellPrice.spellType == spellType)
+            {
+                return spellPrice;
+            }
+        }
+        return null;
+    }
+
+    public SpellPrice GetSpellUnlockPrice(SpellEnum spellType)
+    {
+        foreach (SpellPrice spellPrice in _spellUnlockPrices)
         {
             if (spellPrice.spellType == spellType)
             {
@@ -823,7 +843,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void BuySpell(SpellEnum spell)
     {
-        SpellPrice spellPrice = GetSpellPrice(spell);
+        SpellPrice spellPrice = GetSpellCastPrice(spell);
         if (spellPrice == null)
         {
             Debug.LogError($"SpellPrice for {spell} not found.");

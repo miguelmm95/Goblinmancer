@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
@@ -8,13 +9,14 @@ using UnityEngine;
 /// </summary>
 public class SpellUnlockMenu : BaseMenu
 {
-    class article
+    [Serializable]
+    class Article
     {
         public SpellEnum spellType;
         public TextMeshProUGUI bodyPriceText;
         public TextMeshProUGUI bloodPriceText;
     }
-    [SerializeField] List<article> _articles = new List<article>();
+    [SerializeField] List<Article> _articles = new List<Article>();
     [SerializeField] SpellUnlockButton[] _buttons;
     [SerializeField] TextMeshProUGUI BloodAmountText;
     [SerializeField] TextMeshProUGUI ZombieAmountText;
@@ -26,7 +28,7 @@ public class SpellUnlockMenu : BaseMenu
 
         foreach (SpellPrice price in _prices)
         {
-            foreach (article article in _articles)
+            foreach (Article article in _articles)
             {
                 if (article.spellType == price.spellType)
                 {
@@ -40,16 +42,14 @@ public class SpellUnlockMenu : BaseMenu
 
     public void UnlockSpell(SpellEnumHolder spellEnumHolder)
     {
-        SpellPrice price = GameManager.Instance.GetSpellPrice(spellEnumHolder.spellType);
+        SpellPrice price = GameManager.Instance.GetSpellUnlockPrice(spellEnumHolder.spellType);
         if (GameManager.Instance.GetBlood() < price.price.bloodPrice || GameManager.Instance.GetBodies() < price.price.bodyPrice) return;
 
         GameManager.Instance.AddBlood(-price.price.bloodPrice);
         GameManager.Instance.RemoveBodies(price.price.bodyPrice);
 
         GameManager.Instance.UnlockSpell(price.spellPrefab);
-        Debug.Log("Unlocked spell: " + spellEnumHolder.spellType.ToString());
         GameObject button = GetUnlockButton(spellEnumHolder);
-        Debug.Log("Button to destroy: " + (button != null ? button.name : "null"));
         if(button.TryGetComponent<Popup>(out var popup))
         {
             popup.ClosePopup();

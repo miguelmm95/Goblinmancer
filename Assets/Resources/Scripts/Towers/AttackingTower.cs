@@ -23,6 +23,7 @@ public class AttackingTower : BaseTower
             attack.isAlly = true;
         }
         _currentAttackCooldown = _cooldownBetweenAttacks;
+        Pause();
     }
 
     /// <summary>
@@ -53,10 +54,29 @@ public class AttackingTower : BaseTower
     /// <param name="attack"></param>
     protected void CheckAttack(BaseAttack attack)
     {
+        Debug.Log($"Tower {name} is checking attack {attack.GetType().Name}");
         if (attack == null) return;
         if (attack.CanAttack)
         {
+            Debug.Log($"Tower {name} is attacking with {attack.GetType().Name}");
             attack.Attack(attack.GetTarget(transform.position, null));
+        }
+    }
+
+    public override void Pause()
+    {
+        base.Pause();
+        foreach (BaseAttack attack in _attacks)
+        {
+            attack.paused = true;
+        }
+    }
+    public override void Unpause()
+    {
+        base.Unpause();
+        foreach (BaseAttack attack in _attacks)
+        {
+            attack.paused = false;
         }
     }
 }

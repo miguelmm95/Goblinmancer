@@ -9,6 +9,7 @@ public class BarrierGenerator : BaseTower
 {
     [SerializeField] int _barrierAmount = 5;
     [SerializeField] int numberBarriers = 10;
+    [SerializeField] GameObject _barrierEffectPrefab;
 
     /// <summary>
     /// Prepares the barrier generator by adding barriers to random allied units.
@@ -21,7 +22,7 @@ public class BarrierGenerator : BaseTower
 
         for (int i = 0; i < numberBarriers; i++)
         {
-            allies[Random.Range(0, allies.Count)].AddOverHealth(_barrierAmount);
+            allies[Random.Range(0, allies.Count)].AddOverHealth(_barrierAmount, effect: _barrierEffectPrefab);
         }
     }
 }

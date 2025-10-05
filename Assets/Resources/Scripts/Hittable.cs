@@ -69,7 +69,12 @@ public class Hittable : MonoBehaviour
 
     public void AddOverHealth(float amount, float duration = 0f, GameObject effect = null)
     {
+        Debug.Log($"Adding {amount} overhealth to {name} for {duration} seconds with effect {effect?.name}.");
         _overHealth += amount;
+        if (effect != null)
+        {
+            Instantiate(effect, transform);
+        }
         if (duration > 0f)
         {
             StartCoroutine(RemoveOverHealthAfterDuration(amount, duration, effect));

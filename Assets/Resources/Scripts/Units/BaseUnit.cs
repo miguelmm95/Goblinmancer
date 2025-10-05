@@ -125,7 +125,6 @@ public abstract class BaseUnit : Hittable
         {
             Debug.LogWarning($"{gameObject.name} is already dead. Die() called again.");
         }
-        Debug.Log($"{gameObject.name} has died.");
         _dead = true;
     }
 

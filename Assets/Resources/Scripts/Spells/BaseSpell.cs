@@ -8,19 +8,20 @@ using UnityEngine;
 /// </summary>
 public abstract class BaseSpell : BaseMenu
 {
-    public Price Cost => _castingCost;
     [SerializeField] float _superOpenOffset;
-    [SerializeField] Price _castingCost;
     [SerializeField] float _cooldown = 20f; // Cooldown time in seconds
     [SerializeField] TextMeshProUGUI _cooldownText;
     [SerializeField] TextMeshProUGUI _bodyCostText;
     [SerializeField] TextMeshProUGUI _bloodCostText;
+    [SerializeField] SpellEnum _spellType;
     [SerializeField] EventReference _spellSound;
     float _currentCooldown; // Time left until the spell can be cast again
+    Price _castingCost;
 
     void Start()
     {
         _currentCooldown = 0f;
+        _castingCost = GameManager.Instance.GetSpellCastPrice(_spellType).price;
         _bodyCostText.text = _castingCost.bodyPrice.ToString() + " Z";
         _bloodCostText.text = _castingCost.bloodPrice.ToString() + " B";
         _cooldownText.text = "";

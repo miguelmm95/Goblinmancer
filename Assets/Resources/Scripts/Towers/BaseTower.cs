@@ -71,7 +71,7 @@ public class BaseTower : Hittable
     /// <summary>
     /// Pauses the tower's behavior between rounds.
     /// </summary>
-    public void Pause()
+    public virtual void Pause()
     {
         _paused = true;
     }
@@ -79,7 +79,7 @@ public class BaseTower : Hittable
     /// <summary>
     /// Unpauses the tower's behavior.
     /// </summary>
-    public void Unpause()
+    public virtual void Unpause()
     {
         _paused = false;
     }
