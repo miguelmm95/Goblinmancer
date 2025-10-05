@@ -807,7 +807,6 @@ public class GameManager : MonoBehaviour
         {
             _nextRoundMenu.CloseMenu();
             _constructionMenu.CloseMenu();
-            _currencyIndicator.CloseMenu();
         }
         else if (_currentPhase == PhaseEnum.Combat)
         {
