@@ -45,11 +45,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorFactor: 2
+    - _ColorFactor: 1.5
     - _ColorMask: 15
     - _ColorResolution: 8
-    - _DitherOpacity: 0.1
-    - _PosterizeSteps: 8
+    - _DitherOpacity: 0.03
+    - _PosterizeSteps: 13.12
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0

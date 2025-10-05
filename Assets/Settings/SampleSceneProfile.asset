@@ -34,10 +34,10 @@ MonoBehaviour:
     m_Value: 10
   intensity:
     m_OverrideState: 1
-    m_Value: 0.464
+    m_Value: 0.26
   response:
     m_OverrideState: 1
-    m_Value: 0.584
+    m_Value: 0.217
   texture:
     m_OverrideState: 1
     m_Value: {fileID: 2800000, guid: c485a54a99a215649824de64dbfa890c, type: 3}
@@ -62,7 +62,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.347
+    m_Value: 0.363
   smoothness:
     m_OverrideState: 1
     m_Value: 0.144
@@ -81,10 +81,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e1dc532bcb41949b58bc4f2abfbb7e, type: 3}
   m_Name: LensDistortion
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.LensDistortion
-  active: 0
+  active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.23
+    m_Value: 0.12
   xMultiplier:
     m_OverrideState: 0
     m_Value: 1
