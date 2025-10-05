@@ -40,6 +40,10 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance { get; private set; }
 
+    private float _phaseFader = 0f;
+    private bool changePhase = false;
+    private PhaseEnum currentPhase = PhaseEnum.Build;
+
     private void Awake()
     {
         if (instance != null)
@@ -65,6 +69,29 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
+        if (changePhase && currentPhase == PhaseEnum.Build)
+        {
+            _phaseFader += Time.deltaTime;
+            _musicEventInstance.setParameterByName("GameState", _phaseFader);
+            if (_phaseFader >= 1f)
+            {
+                currentPhase = PhaseEnum.Combat;
+                changePhase = false;
+            }
+                
+        }
+        if (changePhase && currentPhase == PhaseEnum.Combat)
+        {
+            _phaseFader -= Time.deltaTime;
+            _musicEventInstance.setParameterByName("GameState", _phaseFader);
+            if (_phaseFader <= 0f)
+            {
+                currentPhase = PhaseEnum.Build;
+                changePhase = false;
+            }
+                
+        }
+
         if (masterMuted) masterBus.setVolume(0);
         else masterBus.setVolume(masterVolume);
         
@@ -120,6 +147,11 @@ public class AudioManager : MonoBehaviour
         return emitter;
     }
 
+    public void ChangePhase()
+    {
+        changePhase = true;
+
+    }
     private void CleanUp()
     {
         // stop and release any created instances

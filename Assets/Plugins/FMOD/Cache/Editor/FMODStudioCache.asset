@@ -123,7 +123,7 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Menu.bank
   Name: Menu
   StudioPath: bank:/Menu
-  lastModified: 638952731432191598
+  lastModified: 638952698511831326
   FileSizes: []
   Exists: 1
 --- !u!114 &-7605895163121441642
@@ -303,7 +303,7 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638951116867511837
+  lastModified: 638952915711455655
   FileSizes: []
   Exists: 1
 --- !u!114 &-4854422347229759896
@@ -414,6 +414,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 90
   Length: 602
+--- !u!114 &-1782477689529857633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/GoblinAmbient
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/GoblinAmbient
+  Guid:
+    Data1: -1671964103
+    Data2: 1220009063
+    Data3: 533809549
+    Data4: 1116551240
+  Banks:
+  - {fileID: 715803047852382264}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 30545
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,12 +487,13 @@ MonoBehaviour:
   - {fileID: -7257358311419971906}
   - {fileID: 4086722753582833948}
   - {fileID: -3328690444704028986}
+  - {fileID: -1782477689529857633}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4892195224363320645}
   StringsBanks:
   - {fileID: 4270119258077763817}
-  cacheTime: 638952820342928214
+  cacheTime: 638952915711475696
   cacheVersion: 131632
 --- !u!114 &379727500289217172
 MonoBehaviour:
@@ -509,7 +537,7 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Game.bank
   Name: Game
   StudioPath: bank:/Game
-  lastModified: 638952820342928214
+  lastModified: 638952915711230809
   FileSizes: []
   Exists: 1
 --- !u!114 &1499321727392329557
@@ -586,13 +614,13 @@ MonoBehaviour:
     Data4: 1588461098
   Banks:
   - {fileID: 715803047852382264}
-  IsStream: 0
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 53831
 --- !u!114 &3499009689413382293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +675,7 @@ MonoBehaviour:
   - {fileID: 4613563521393850495}
   MinDistance: 1
   MaxDistance: 20
-  Length: 76259
+  Length: 114251
 --- !u!114 &4086722753582833948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +701,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 90
+  MaxDistance: 100
   Length: 2117
 --- !u!114 &4270119258077763817
 MonoBehaviour:
@@ -690,10 +718,10 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638952731432035827
+  lastModified: 638952915711475696
   FileSizes:
   - Name: 
-    Value: 2264
+    Value: 2314
   Exists: 1
 --- !u!114 &4613563521393850495
 MonoBehaviour:
@@ -873,8 +901,8 @@ MonoBehaviour:
     Data3: 803502501
     Data4: 2130731895
   Banks:
-  - {fileID: 715803047852382264}
   - {fileID: -7763510257370991289}
+  - {fileID: 715803047852382264}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -901,8 +929,8 @@ MonoBehaviour:
     Data3: 198738608
     Data4: 865376899
   Banks:
-  - {fileID: 715803047852382264}
   - {fileID: -7763510257370991289}
+  - {fileID: 715803047852382264}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1

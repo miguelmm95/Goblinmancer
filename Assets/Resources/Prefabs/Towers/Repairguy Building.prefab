@@ -122,8 +122,8 @@ MonoBehaviour:
     Path: event:/Build
   _interactSound:
     Guid:
-      Data1: -1270901288
-      Data2: 1189625640
-      Data3: 803502501
-      Data4: 2130731895
-    Path: event:/ButtonClick
+      Data1: 994827508
+      Data2: 1187398613
+      Data3: -1127659362
+      Data4: -392058597
+    Path: event:/SelectBuilding
