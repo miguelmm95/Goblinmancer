@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d607ef80461064db2ce51332013b8c, type: 3}
+  m_Name: PyroGoblin
+  m_EditorClassIdentifier: Assembly-CSharp::RoundEnemy
+  enemyUnit: {fileID: 1939611623146773574, guid: 20dc24c2a8ee40a4b8a5c49b3ee9c081, type: 3}
+  icon: {fileID: 0}

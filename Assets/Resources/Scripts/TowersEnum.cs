@@ -5,5 +5,6 @@ public enum TowersEnum
     GoblinomancyStudy,
     BoneTower,
     LightningTower,
-    BarrierGenerator
+    BarrierGenerator,
+    Tree
 }

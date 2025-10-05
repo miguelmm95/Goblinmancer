@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A healing explosive projectile that heals allies in an area upon impact.
+/// </summary>
 public class HealingExplosive : ExplosiveProjectile
 {
     protected override void Hit()

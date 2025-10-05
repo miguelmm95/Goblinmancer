@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Represents the price and prefab of a tower.
+/// </summary>
 [System.Serializable]
 public class TowerPrice
 {

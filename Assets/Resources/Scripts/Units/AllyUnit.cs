@@ -5,36 +5,44 @@ using DG.Tweening;
 using UnityEditor.UI;
 using FMODUnity;
 
-// Base class for all units, enemy and ally
+/// <summary>
+/// Represents an allied unit that can be spawned and managed by cemeteries.
+/// </summary>
 public class AllyUnit : BaseUnit
 {
-    [HideInInspector] public Cemetery _cemetery;
+    [HideInInspector] public Cemetery cemetery;
     [HideInInspector] public float spawnRadius = 5f;
-    [SerializeField] public readonly AllyUnitsEnum unitType; // Type of the unit, used for identifying it
+    [SerializeField] public AllyUnitsEnum unitType; // Type of the unit, used for identifying it
     [SerializeField] EventReference _spawnSound;
 
+    /// <summary>
+    /// Initializes the ally unit and plays spawn effects.
+    /// </summary>
     protected override void Start()
     {
         base.Start();
 
-        Debug.Log($"AllyUnit spawned: {unitType}");
-
         AudioManager.instance.PlayOneShot(_spawnSound, transform.position);
-        transform.DOMove(_cemetery.UnitSpawnPoint.position + new Vector3(
+        transform.DOMove(cemetery.UnitSpawnPoint.position + new Vector3(
             Random.Range(-spawnRadius, spawnRadius),
             0,
             Random.Range(-spawnRadius, spawnRadius)
         ), _spawnTweenDuration).SetEase(Ease.InOutCubic);
     }
+
+    /// <summary>
+    /// Handles the destruction of the ally unit, removing it from its cemetery.
+    /// </summary>
     void OnDestroy()
     {
-        if (_cemetery == null)
+        if (cemetery == null)
         {
             return;
         }
         else
         {
-            _cemetery.RemoveUnit(this);
+            Debug.Log("Removing unit from cemetery: " + unitType);
+            cemetery.RemoveUnit(this);
         }
     }
 
@@ -45,7 +53,7 @@ public class AllyUnit : BaseUnit
     {
         if (_dead) return;
 
-        if (_cemetery == null)
+        if (cemetery == null)
         {
             _dead = true;
             return;
@@ -61,17 +69,21 @@ public class AllyUnit : BaseUnit
             attack._slowMultiplier = 1f;
             attack._hastenMultiplier = 1f;
         }
-        transform.DOMove(_cemetery.UnitSpawnPoint.position + new Vector3(
+        transform.DOMove(cemetery.UnitSpawnPoint.position + new Vector3(
             Random.Range(-spawnRadius, spawnRadius),
             0,
             Random.Range(-spawnRadius, spawnRadius)
         ), _spawnTweenDuration).SetEase(Ease.InOutCubic);
     }
+
+    /// <summary>
+    /// Changes the cemetery managing this unit.
+    /// </summary>
     public void ChangeCemetery(Cemetery newCemetery)
     {
-        if (_cemetery != null)
+        if (cemetery != null)
         {
-            _cemetery.RemoveUnit(this);
+            cemetery.RemoveUnit(this);
         }
         newCemetery.AddUnit(this);
         Reset();

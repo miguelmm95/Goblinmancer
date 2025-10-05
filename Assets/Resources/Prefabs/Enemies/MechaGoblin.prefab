@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 7025362404698850627}
   - component: {fileID: 6381387047655904131}
   m_Layer: 0
-  m_Name: TripleGoblin
+  m_Name: MechaGoblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A projectile that follows a parabolic trajectory and explodes upon impact, dealing area damage.
+/// </summary>
 public class ExplosiveProjectile : Projectile
 {
     [SerializeField] protected float _explosionRadius = 5f;
@@ -54,7 +57,7 @@ public class ExplosiveProjectile : Projectile
         {
             Destroy(gameObject);
             return;
-        }        
+        }
 
         // Move towards target horizontally
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPosition.x, transform.position.y, targetPosition.z), _speed * Time.deltaTime);

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Represents the price and prefab of an allied unit.
+/// </summary>
 [System.Serializable]
 public class AllyUnitPrice
 {

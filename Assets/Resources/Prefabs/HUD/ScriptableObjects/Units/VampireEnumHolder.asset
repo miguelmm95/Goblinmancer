@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8504919f5e521cd4e84db9c2d7ca5978, type: 3}
   m_Name: VampireEnumHolder
   m_EditorClassIdentifier: Assembly-CSharp::UnitEnumHolder
-  unitType: 0
+  unitType: 3

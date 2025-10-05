@@ -104,8 +104,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BarrierGenerator
   _maxHealth: 20
   _size: 0.5
-  _targetingPriority: 0
-  _bodiesPrice: 50
-  _canAttack: 0
-  _damage: 0
-  _attackCooldown: 0
+  _deathSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  tile: {fileID: 0}
+  _towerType: 0
+  _placeSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  _interactSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  _barrierAmount: 5
+  numberBarriers: 10
+  _barrierEffectPrefab: {fileID: 6608690531741703145, guid: 10f13cd27a82acc45ac61bd0ae65adc6, type: 3}

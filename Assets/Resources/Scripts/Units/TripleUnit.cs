@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// A special enemy unit that splits into three smaller units upon death.
+/// </summary>
 public class TripleGoblin : EnemyUnit
 {
     [SerializeField] EnemyUnit _secondaryUnitPrefab1;
@@ -9,6 +12,9 @@ public class TripleGoblin : EnemyUnit
     [SerializeField] Transform _secondaryUnitSpawnPoint2;
     [SerializeField] Transform _secondaryUnitSpawnPoint3;
 
+    /// <summary>
+    /// Handles the death of the triple goblin, spawning three smaller goblins.
+    /// </summary>
     protected override void Die()
     {
         if (_dead)

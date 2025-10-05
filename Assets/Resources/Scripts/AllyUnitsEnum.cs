@@ -1,5 +1,8 @@
 using System;
 
+/// <summary>
+/// Enumeration of different types of allied units.
+/// </summary>
 [Serializable]
 public enum AllyUnitsEnum
 {

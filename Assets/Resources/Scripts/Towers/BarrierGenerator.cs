@@ -2,11 +2,19 @@ using System.Collections.Generic;
 using System.IO.Compression;
 using UnityEngine;
 
+/// <summary>
+/// A tower that generates barriers for allied units.
+/// </summary>
 public class BarrierGenerator : BaseTower
 {
     [SerializeField] int _barrierAmount = 5;
     [SerializeField] int numberBarriers = 10;
-    protected override void OnPrepare()
+    [SerializeField] GameObject _barrierEffectPrefab;
+
+    /// <summary>
+    /// Prepares the barrier generator by adding barriers to random allied units.
+    /// </summary>
+    public override void OnPrepare()
     {
         GameManager manager = GameManager.Instance;
 
@@ -14,7 +22,7 @@ public class BarrierGenerator : BaseTower
 
         for (int i = 0; i < numberBarriers; i++)
         {
-            allies[Random.Range(0, allies.Count)].AddOverHealth(_barrierAmount);
+            allies[Random.Range(0, allies.Count)].AddOverHealth(_barrierAmount, effect: _barrierEffectPrefab);
         }
     }
 }

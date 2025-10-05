@@ -2,6 +2,9 @@ using System;
 using FMODUnity;
 using UnityEngine;
 
+/// <summary>
+/// Base class for projectiles that move towards a target and deal damage upon impact.
+/// </summary>
 public class Projectile : MonoBehaviour
 {
     [HideInInspector] public bool isAlly;
@@ -45,7 +48,7 @@ public class Projectile : MonoBehaviour
             Hit();
         }
     }
-    
+
     /// <summary>
     /// Called when the projectile hits its target. Deals damage to the target if it has a Hittable component, then destroys the projectile. Can be overridden by derived classes for custom hit behavior.
     /// </summary>

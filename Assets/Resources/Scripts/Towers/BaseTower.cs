@@ -1,51 +1,62 @@
 using FMODUnity;
 using UnityEngine;
 
-// Base class for all towers
-public abstract class BaseTower : Hittable
+/// <summary>
+/// Base class for all tower types.
+/// </summary>
+public class BaseTower : Hittable
 {
+    public Tile tile;
+    public TowersEnum TowerType => _towerType;
     const float SELL_CASHBACK = 0.7f; // Percentage of bodies returned when sold.
-    
-    [SerializeField] protected int _bodiesPrice;
+    [SerializeField] TowersEnum _towerType;
     [SerializeField] EventReference _placeSound;
     [SerializeField] EventReference _interactSound;
-    [Header("Damage properties")]
-    protected bool _paused;
+    protected Price _price;
+    protected bool _paused = false;
 
     /// <summary>
     /// Tower behaviour when bought.
     /// </summary>
     protected override void Start()
     {
+        if (_towerType == TowersEnum.Tree) return; // Trees are not registered as towers.
         base.Start();
         AudioManager.instance.PlayOneShot(_placeSound, transform.position);
-        Pause();
+        GameManager.Instance.AddTower(this);
+        _price = GameManager.Instance.GetTowerPrice(_towerType);
     }
 
     /// <summary>
     /// Called before the combat starts.
     /// </summary>
-    protected virtual void OnPrepare()
+    public virtual void OnPrepare()
     {
 
     }
-    
+
     /// <summary>
     /// Tower behaviour when sold.
     /// </summary>
-    protected virtual void OnSell()
+    public virtual void OnSell()
     {
-        for (int i = 0; i < Mathf.RoundToInt(_bodiesPrice * SELL_CASHBACK * CurrentHealth / MaxHealth); i++)
+        for (int i = 0; i < Mathf.RoundToInt(_price.bodyPrice * SELL_CASHBACK * CurrentHealth / MaxHealth); i++)
         {
             GameManager.Instance.AddBody();
         }
+        GameManager.Instance.AddBlood(Mathf.RoundToInt(_price.bloodPrice * SELL_CASHBACK * CurrentHealth / MaxHealth));
+
         GameManager.Instance.RemoveTower(this);
     }
 
+    /// <summary>
+    /// Tower behaviour when destroyed.
+    /// </summary>
     protected override void Die()
     {
         AudioManager.instance.PlayOneShot(_deathSound, transform.position);
         GameManager.Instance.RemoveTower(this);
+        tile.BuildingDestroyed();
     }
 
     /// <summary>
@@ -53,13 +64,14 @@ public abstract class BaseTower : Hittable
     /// </summary>
     public virtual void OnInteract()
     {
+        Debug.Log("Interacted with " + gameObject.name);
         if (_paused) return;
         AudioManager.instance.PlayOneShot(_interactSound, transform.position);
     }
     /// <summary>
     /// Pauses the tower's behavior between rounds.
     /// </summary>
-    public void Pause()
+    public virtual void Pause()
     {
         _paused = true;
     }
@@ -67,7 +79,7 @@ public abstract class BaseTower : Hittable
     /// <summary>
     /// Unpauses the tower's behavior.
     /// </summary>
-    public void Unpause()
+    public virtual void Unpause()
     {
         _paused = false;
     }

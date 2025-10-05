@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7341117730609718241
+--- !u!1 &5850194443018495761
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5068950807186352763}
-  - component: {fileID: 365293947622672670}
+  - component: {fileID: 1076076403912202823}
+  - component: {fileID: 2979389017490909193}
   m_Layer: 0
-  m_Name: Fireball
+  m_Name: SpellCastingMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5068950807186352763
+--- !u!4 &1076076403912202823
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7341117730609718241}
+  m_GameObject: {fileID: 5850194443018495761}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,32 +32,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &365293947622672670
+--- !u!114 &2979389017490909193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7341117730609718241}
+  m_GameObject: {fileID: 5850194443018495761}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27d6a88e2a324a447ae3c5c09c24dc52, type: 3}
+  m_Script: {fileID: 11500000, guid: dd8d090652d5e9e408def021c6ef7953, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FireBall
-  _unlockCost:
-    bodyPrice: 2
-    bloodPrice: 10
-  _castingCost:
-    bodyPrice: 0
-    bloodPrice: 3
-  _cooldown: 20
-  _spellSound:
+  m_EditorClassIdentifier: Assembly-CSharp::SpellCastingMenu
+  _menuInteractionSound:
     Guid:
       Data1: 0
       Data2: 0
       Data3: 0
       Data4: 0
     Path: 
-  _fireballPrefab: {fileID: 1297617087594033831, guid: 9105ee18496c79540aec0c513c22c360, type: 3}
-  _explosionRadius: 5
-  _damage: 20
+  _menuTransform: {fileID: 0}
+  _animationDuration: 0.5
+  _closedPosition: {x: 0, y: -300, z: 0}
+  _state: 0

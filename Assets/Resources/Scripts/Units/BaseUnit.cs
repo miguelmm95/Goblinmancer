@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Collections;
 using DG.Tweening;
 using UnityEditor.UI;
+using UnityEditor.Build;
+using NUnit.Framework;
 
-// Base class for all units, enemy and ally
+/// <summary>
+/// Base class for all units, enemy and ally
+/// </summary>
 public abstract class BaseUnit : Hittable
 {
     public bool Dead => _dead;
     [SerializeField] protected float _movementSpeed = 10f;
     [SerializeField] protected float _cooldownBetweenAttacks = 0.2f;
     [SerializeField] protected float _spawnTweenDuration = 1f;
+    [SerializeField] protected Animator _animator;
     protected float _slowMultiplier = 1f; // Multiplier for movement speed when slowed
     protected float _hastenMultiplier = 1f; // Multiplier for movement speed when hastened
     protected Hittable _target;
@@ -86,6 +91,8 @@ public abstract class BaseUnit : Hittable
             _attacks[_currentAttackIndex].Attack(_target);
             _target = null; // Reset target after attack to find a new one next frame
             _currentAttackCooldown = _cooldownBetweenAttacks;
+            _animator.Play("Rest");
+            _animator.Play("Attack");
         }
     }
 
@@ -112,11 +119,12 @@ public abstract class BaseUnit : Hittable
     /// </summary>
     protected override void Die()
     {
+        _animator.Play("Rest");
+        _animator.Play("Dead");
         if (_dead)
         {
             Debug.LogWarning($"{gameObject.name} is already dead. Die() called again.");
         }
-        Debug.Log($"{gameObject.name} has died.");
         _dead = true;
     }
 
@@ -173,6 +181,7 @@ public abstract class BaseUnit : Hittable
         }
         StartCoroutine(RemoveHastenAfterDuration(duration, hastenAmount));
     }
+
     IEnumerator RemoveSlowAfterDuration(float duration, float slowAmount)
     {
         yield return new WaitForSeconds(duration);

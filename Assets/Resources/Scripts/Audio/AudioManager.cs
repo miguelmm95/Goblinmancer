@@ -16,6 +16,11 @@ public class AudioManager : MonoBehaviour
     [Range(0, 1)]
     public float SFXVolume = 1;
 
+    public bool masterMuted = false;
+    public bool musicMuted = false;
+    public bool ambienceMuted = false;
+    public bool SFXMuted = false;
+
     private Bus masterBus;
     private Bus musicBus;
     private Bus ambienceBus;
@@ -60,10 +65,17 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        masterBus.setVolume(masterVolume);
-        musicBus.setVolume(musicVolume);
-        ambienceBus.setVolume(ambienceVolume);
-        sfxBus.setVolume(SFXVolume);
+        if (masterMuted) masterBus.setVolume(0);
+        else masterBus.setVolume(masterVolume);
+        
+        if (musicMuted) musicBus.setVolume(0);
+        else musicBus.setVolume(musicVolume);
+
+        if (ambienceMuted) ambienceBus.setVolume(0);
+        else ambienceBus.setVolume(ambienceVolume);
+
+        if (SFXMuted) sfxBus.setVolume(0);
+        else sfxBus.setVolume(SFXVolume);
     }
 
     private void InitializeAmbience(EventReference ambienceEventReference)

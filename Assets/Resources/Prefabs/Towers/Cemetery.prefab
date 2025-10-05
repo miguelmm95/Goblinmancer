@@ -105,13 +105,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cemetery
   _maxHealth: 50
   _size: 0.5
-  _targetingPriority: 0
-  _bodiesPrice: 5
-  _canAttack: 0
-  _damage: 0
-  _attackCooldown: 0
-  _numberBodiesToAdd: 0
-  _barracksMenu: {fileID: 3211069217418856273}
+  _deathSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  tile: {fileID: 0}
+  _price:
+    bodyPrice: 0
+    bloodPrice: 0
+  _towerType: 0
+  _placeSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  _interactSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  _capacity: 20
+  _spawnRadius: 5
+  _unitSpawnPoint: {fileID: 0}
 --- !u!1 &3907828088078408485
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,8 +58,9 @@ MonoBehaviour:
   _movementSpeed: 11
   _cooldownBetweenAttacks: 0.2
   _spawnTweenDuration: 1
-  _cemetery: {fileID: 0}
+  cemetery: {fileID: 0}
   spawnRadius: 5
+  unitType: 2
   _spawnSound:
     Guid:
       Data1: 223465363

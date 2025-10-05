@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-[System.Serializable]
-public class RandomRoundEnemy
+[CreateAssetMenu(fileName = "New Round Enemy", menuName = "ScriptableObjects/Round Enemy", order = 3)]
+public class RoundEnemy : ScriptableObject
 {
     public EnemyUnit enemyUnit;
-    [SerializeField, Range(0, 1)] public float Probability; // Probability of this enemy appearing in the round (0 to 1)
+    public Image icon;
 }

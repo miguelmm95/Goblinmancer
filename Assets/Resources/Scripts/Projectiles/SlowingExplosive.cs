@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A slowing explosive projectile that damages and slows enemies in an area upon impact.
+/// </summary>
 public class SlowingExplosive : ExplosiveProjectile
 {
     [SerializeField] float _slowAmount = 30f; // Percentage to slow

@@ -2,15 +2,22 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
+/// <summary>
+/// A tower that can spawn and manage allied units.
+/// </summary>
 public class Cemetery : BaseTower
 {
+    public int Capacity => _capacity;
     public List<AllyUnit> Units => _units;
     public Transform UnitSpawnPoint => _unitSpawnPoint;
     private List<AllyUnit> _units = new List<AllyUnit>();
     [SerializeField] int _capacity = 20;
-    [SerializeField] float _spawnRadius;
+    [SerializeField] float _spawnRadius = 5f;
     [SerializeField] private Transform _unitSpawnPoint = null; // Point where units will spawn
 
+    /// <summary>
+    /// Initializes the cemetery and registers it with the GameManager.
+    /// </summary>
     protected override void Start()
     {
         base.Start();
@@ -18,9 +25,13 @@ public class Cemetery : BaseTower
         {
             _unitSpawnPoint = transform;
         }
+        GameManager.Instance.AddCemetery(this);
     }
 
-    protected override void OnSell()
+    /// <summary>
+    /// Handles the selling of the cemetery, moving units away and cleaning up references.
+    /// </summary>
+    public override void OnSell()
     {
         MoveUnitsAway();
 
@@ -29,6 +40,9 @@ public class Cemetery : BaseTower
         base.OnSell();
     }
 
+    /// <summary>
+    /// Handles the death of the cemetery, moving units away and cleaning up references.
+    /// </summary>
     protected override void Die()
     {
         MoveUnitsAway();
@@ -38,6 +52,9 @@ public class Cemetery : BaseTower
         base.Die();
     }
 
+    /// <summary>
+    /// Moves units to other cemeteries if available.
+    /// </summary>
     void MoveUnitsAway()
     {
         List<Cemetery> cemeteries = GameManager.Instance.GetCemeteries(this);
@@ -65,6 +82,9 @@ public class Cemetery : BaseTower
         }
     }
 
+    /// <summary>
+    /// Handles player interaction with the cemetery to open the unit purchase menu.
+    /// </summary>
     public override void OnInteract()
     {
         if (_paused) return;
@@ -87,7 +107,9 @@ public class Cemetery : BaseTower
 
         if (IsFull()) return false;
 
-        manager.RemoveBodies(-unitPrice.price.bodyPrice);
+        Debug.Log("Buying unit: " + unitId.ToString() + " for " + unitPrice.price.bodyPrice + " bodies and " + unitPrice.price.bloodPrice + " blood.");
+
+        manager.RemoveBodies(unitPrice.price.bodyPrice);
         manager.AddBlood(-unitPrice.price.bloodPrice);
 
         AllyUnit newUnit = Instantiate(unitPrice.unitPrefab, transform.position, Quaternion.identity);
@@ -101,12 +123,12 @@ public class Cemetery : BaseTower
     }
     public void AddUnit(AllyUnit unit)
     {
-        unit._cemetery = this;
+        unit.cemetery = this;
         _units.Add(unit);
     }
     public void RemoveUnit(AllyUnit unit)
     {
-        unit._cemetery = null;
+        unit.cemetery = null;
         _units.Remove(unit);
     }
     public bool IsFull()
