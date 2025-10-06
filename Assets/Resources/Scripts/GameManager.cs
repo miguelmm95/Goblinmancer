@@ -71,8 +71,10 @@ public class GameManager : MonoBehaviour
         _constructionMenu.Init(_towerPrices);
 
         _spellUnlockMenu.Init(_spellUnlockPrices);
-        
+
         _currencyIndicator.UpdateCurrencyDisplay(GetBodies(), GetBlood());
+        
+        _castle.transform.localScale = Vector3.zero;
     }
 
     void Update()
@@ -1003,9 +1005,11 @@ public class GameManager : MonoBehaviour
             StartCoroutine(TileRowAnimation(i));
             yield return new WaitForSeconds(0.15f);
         }
-        StartCoroutine(InitialZombieSpawns());
 
-        ShowHUD();
+        _castle.transform.DOScale(Vector3.one * 7, 0.5f).SetEase(Ease.OutFlash).OnComplete(() =>
+        {
+            StartCoroutine(InitialZombieSpawns());
+        });
     }
     private IEnumerator TileRowAnimation(int row)
     {
@@ -1022,5 +1026,6 @@ public class GameManager : MonoBehaviour
             AddBody();
             yield return new WaitForSeconds(_timeBetweenSpawns);
         }
+        ShowHUD();
     }
 }
