@@ -122,7 +122,7 @@ MonoBehaviour:
   _cooldownBetweenAttacks: 0.2
   _retargetFrequecy: 1
   _spawnTweenDuration: 1
-  _animator: {fileID: 0}
+  _animator: {fileID: 4725268531444739249}
   _stepHeight: 0.5
   _stepDuration: 0.1
   _stepSound:
