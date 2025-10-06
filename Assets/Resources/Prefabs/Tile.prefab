@@ -280,9 +280,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tile
   _meshRenderer: {fileID: 5491267392101237923}
-  _buildableMaterial: {fileID: 2100000, guid: 2b5f43a8cc50e66428a61b9dc1f23503, type: 2}
+  _buildableMaterial: {fileID: 2100000, guid: 3a536a52945b67c41a350c2cb7bd9a7d, type: 2}
   _unusedMaterial: {fileID: 2100000, guid: 1501818e870cc564b956d49fd7201e63, type: 2}
-  _battlefieldMaterial: {fileID: 2100000, guid: 11dd55e086d8d8744a43dbb2782f0b3f, type: 2}
+  _battlefieldMaterial: {fileID: 2100000, guid: 79104ea76384cc14bb0178c8dcbad63e, type: 2}
+  _underCastleMaterial: {fileID: 2100000, guid: 3a536a52945b67c41a350c2cb7bd9a7d, type: 2}
   _highlightEffectGameObject: {fileID: 1369364915867634623}
   _demolishCost:
     bodyPrice: 0
