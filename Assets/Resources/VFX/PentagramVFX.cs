@@ -16,10 +16,6 @@ public class PentagramVFX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pentagramVFX.aliveParticleCount == 0)
-        {
-            auraVFX.Stop();
-            Destroy(gameObject);
-        }
+
     }
 }

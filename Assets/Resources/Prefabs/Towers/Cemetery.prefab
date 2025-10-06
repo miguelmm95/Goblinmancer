@@ -71,7 +71,7 @@ MonoBehaviour:
       Data3: -1127659362
       Data4: -392058597
     Path: event:/SelectBuilding
-  _capacity: 20
+  _capacity: 15
   _spawnSize: {x: 7.5, y: 10}
   _unitSpawnPoint: {fileID: 0}
 --- !u!114 &8812019917992604752
