@@ -42,6 +42,7 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        if(_hit) return;
         transform.position = Vector3.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
         transform.LookAt(target);
         if (Vector3.SqrMagnitude(transform.position - target.position) < _sizeSqr + _targetSizeSqr)
