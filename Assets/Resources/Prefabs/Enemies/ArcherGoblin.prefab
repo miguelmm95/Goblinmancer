@@ -117,10 +117,10 @@ MonoBehaviour:
   _hastenMultiplier: 1
   paused: 1
   isAlly: 0
-  _damage: 1.5
+  _damage: 2
   _attackCooldown: 1
   _range: 20
-  _targetingPriority: 0
+  _targetingPriority: 3
   _attackSound:
     Guid:
       Data1: -296985313
