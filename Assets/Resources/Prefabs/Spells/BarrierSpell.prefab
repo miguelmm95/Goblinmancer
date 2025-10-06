@@ -309,7 +309,7 @@ MonoBehaviour:
       Data4: -1843090420
     Path: event:/EnergyShield
   _duration: 5
-  _barrierHealth: 100
+  _barrierHealth: 5
   _effectRadius: 5
   _barrierPrefab: {fileID: 6608690531741703145, guid: 10f13cd27a82acc45ac61bd0ae65adc6, type: 3}
 --- !u!1 &4053052581657761018
