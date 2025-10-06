@@ -48,7 +48,7 @@ MonoBehaviour:
   isAlly: 0
   target: {fileID: 0}
   targetSize: 0
-  _speed: 15
+  _speed: 18
   _size: 0.5
   _impactSound:
     Guid:
@@ -58,7 +58,7 @@ MonoBehaviour:
       Data4: 476886159
     Path: event:/Bomb
   _explosionPrefab: {fileID: 4686466795568060880, guid: c7e48076fa8d11e44aa7a2ea8b8a1fa9, type: 3}
-  _explosionRadius: 20
+  _explosionRadius: 10
   _curvature: 0.5
 --- !u!1001 &2332101942282303130
 PrefabInstance:
