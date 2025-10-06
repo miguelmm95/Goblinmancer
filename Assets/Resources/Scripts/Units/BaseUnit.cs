@@ -108,7 +108,9 @@ public abstract class BaseUnit : Hittable
             _target = null; // Reset target after attack to find a new one next frame
             _currentAttackCooldown = _cooldownBetweenAttacks;
             _animator.Play("Rest");
-            _animator.Play("Attack");
+            if (_attacks[_currentAttackIndex] is VampireAttack) _animator.Play("Bite");
+            else if (_attacks[_currentAttackIndex] is AreaAttack) _animator.Play("Area attack");
+            else _animator.Play("Attack");
         }
     }
 
