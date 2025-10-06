@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fec76b0ec94604890503ce357438ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
-  _maxHealth: 8
+  _maxHealth: 12
   _size: 0.5
   _deathSound:
     Guid:
@@ -87,7 +87,7 @@ MonoBehaviour:
       Data3: -133462626
       Data4: 1049027934
     Path: event:/GoblinDeath
-  _movementSpeed: 12
+  _movementSpeed: 15
   _cooldownBetweenAttacks: 0.2
   _retargetFrequecy: 1
   _spawnTweenDuration: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
   paused: 1
   isAlly: 0
   _damage: 2
-  _attackCooldown: 0.5
+  _attackCooldown: 0.4
   _range: 6
   _targetingPriority: 1
   _attackSound:

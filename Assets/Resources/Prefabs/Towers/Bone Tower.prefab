@@ -91,7 +91,7 @@ MonoBehaviour:
   paused: 1
   isAlly: 0
   _damage: 10
-  _attackCooldown: 10
+  _attackCooldown: 5
   _range: 1000
   _targetingPriority: 0
   _attackSound:
