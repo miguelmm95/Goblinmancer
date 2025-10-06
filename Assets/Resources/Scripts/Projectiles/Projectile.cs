@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour
     protected float _sizeSqr;
     protected float _damage = 10f;
     protected float _targetSizeSqr;
+    protected bool _hit = false;
 
     /// <summary>
     /// Initializes the projectile's size squared for distance calculations. Can be overridden by derived classes.
@@ -54,6 +55,9 @@ public class Projectile : MonoBehaviour
     /// </summary>
     protected virtual void Hit()
     {
+        if (_hit) return;
+
+        _hit = true;
         Hittable hittable = target.GetComponent<Hittable>();
         AudioManager.instance.PlayOneShot(_impactSound, transform.position);
         if (hittable != null)

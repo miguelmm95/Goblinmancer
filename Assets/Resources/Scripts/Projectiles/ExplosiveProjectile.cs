@@ -80,6 +80,8 @@ public class ExplosiveProjectile : Projectile
     /// </summary>
     protected override void Hit()
     {
+        if (_hit) return;
+        _hit = true;
         if (isAlly)
         {
             List<Hittable> hittables = GameManager.Instance.GetAllEnemiesInRange(transform.position, _explosionRadius);
