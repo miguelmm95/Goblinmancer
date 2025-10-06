@@ -24,6 +24,7 @@ public class PauseMenu : BaseMenu
 
     public void ReturnToMenu()
     {
+        Time.timeScale = 1f;
         AudioManager.instance.PlayOneShot(_menuInteractionSound, transform.position);
         SceneManager.LoadScene("MainMenu");
     }
