@@ -2033,7 +2033,7 @@ MonoBehaviour:
   - towerType: 5
     bodyPriceText: {fileID: 5596844797341017998}
     bloodPriceText: {fileID: 6296346210801230404}
-  _superOpenOffset: -170
+  _superOpenOffset: -260
 --- !u!1 &3158143896300269456
 GameObject:
   m_ObjectHideFlags: 0

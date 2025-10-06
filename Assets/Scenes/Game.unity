@@ -619,15 +619,15 @@ MonoBehaviour:
     price:
       bodyPrice: 2
       bloodPrice: 0
+  - unitType: 3
+    unitPrefab: {fileID: 5665511103590708095, guid: 5debbbc0a0fe56641b6aab089023c08b, type: 3}
+    price:
+      bodyPrice: 1
+      bloodPrice: 0
   - unitType: 2
     unitPrefab: {fileID: 443447381351863103, guid: 51a2ed3177c1bca47866b667130d5963, type: 3}
     price:
       bodyPrice: 10
-      bloodPrice: 0
-  - unitType: 3
-    unitPrefab: {fileID: 5665511103590708095, guid: 5debbbc0a0fe56641b6aab089023c08b, type: 3}
-    price:
-      bodyPrice: 15
       bloodPrice: 0
   - unitType: 4
     unitPrefab: {fileID: 7148454188158189209, guid: 5c248d0829bce914396e511683a2a249, type: 3}
