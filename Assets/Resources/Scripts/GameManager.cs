@@ -121,6 +121,10 @@ public class GameManager : MonoBehaviour
                         Instantiate(_treePrefabs[Random.Range(0, _treePrefabs.Length)], new Vector3(x * _tileSize, 0, y * _tileSize), Quaternion.identity, newTile.transform);
                         newTile.InitializeTile(Tile.TileState.Unused);
                     }
+                    else if (x < 8)
+                    {
+                        newTile.InitializeTile(Tile.TileState.UnderCastle);
+                    }
                     else newTile.InitializeTile(Tile.TileState.Battlefield);
                     
                 }

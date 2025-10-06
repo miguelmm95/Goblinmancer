@@ -11,11 +11,13 @@ public class Tile : MonoBehaviour
         Occupied,
         Battlefield,
         Unused,
+        UnderCastle
     }
     [SerializeField] private MeshRenderer _meshRenderer;
     [SerializeField] private Material _buildableMaterial;
     [SerializeField] private Material _unusedMaterial;
     [SerializeField] private Material _battlefieldMaterial;
+    [SerializeField] private Material _underCastleMaterial;
     [SerializeField] private GameObject _highlightEffectGameObject;
     [SerializeField] private Price _demolishCost;
     [SerializeField] private EventReference _constructSound;
@@ -49,6 +51,9 @@ public class Tile : MonoBehaviour
                 break;
             case TileState.Unused:
                 _meshRenderer.material = _unusedMaterial;
+                break;
+            case TileState.UnderCastle:
+                _meshRenderer.material = _underCastleMaterial;
                 break;
         }
     }
