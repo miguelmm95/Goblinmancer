@@ -1008,7 +1008,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Starting portal animation for defeated enemies...");
         foreach (EnemyUnit unit in _enemyUnits)
         {
-            Debug.Log($"Animating portal for {unit.name} at position {unit.transform.position}");
             for (int i = 0; i < unit.BodyReward; i++)
             {
                 AddBody();
@@ -1016,24 +1015,19 @@ public class GameManager : MonoBehaviour
             _blood += unit.BloodReward;
             if (_blood > _maxBlood) _blood = _maxBlood;
             GameObject portal = Instantiate(_portalPrefab, unit.transform.position + Vector3.up * 0.01f, Quaternion.identity);
-            Debug.Log($"Portal instantiated at {portal.transform.position}");
             Debug.Log(portal.transform.localScale.ToString());
             portal.transform.DOScale(Vector3.one, _portalAnimationDuration * 0.5f).From(Vector3.zero).SetEase(Ease.InOutCubic).OnComplete(() =>
             {
-                Debug.Log($"Portal animation complete for {unit.name}");
                 unit.transform.DOMove(unit.transform.position + Vector3.down * 10f, _portalAnimationDuration * 0.2f).SetEase(Ease.InOutCubic).onComplete = () =>
                 {
                     Destroy(unit.gameObject, 0.1f);
-                    Debug.Log($"{unit.name} destroyed.");
                 };
 
                 portal.transform.DOScale(Vector3.zero, _portalAnimationDuration * 0.5f).SetEase(Ease.InOutCubic).onComplete = () =>
                 {
                     Destroy(portal, 0.1f);
-                    Debug.Log("Portal destroyed.");
                 };
             });
-            Debug.Log($"Portal animation started for {unit.name}");
             yield return new WaitForSeconds(_timeBetweenSpawns + 0.01f);
         }
         _enemyUnits.Clear();
