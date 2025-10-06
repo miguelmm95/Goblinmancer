@@ -88,6 +88,7 @@ MonoBehaviour:
     Path: event:/GoblinDeath
   _movementSpeed: 6
   _cooldownBetweenAttacks: 0.2
+  _retargetFrequecy: 1
   _spawnTweenDuration: 1
   _animator: {fileID: 7722166468461553323}
   _stepHeight: 0.5
@@ -126,7 +127,7 @@ MonoBehaviour:
   paused: 1
   isAlly: 0
   _damage: 1.5
-  _attackCooldown: 1
+  _attackCooldown: 1.5
   _range: 20
   _targetingPriority: 3
   _attackSound:

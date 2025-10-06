@@ -549,7 +549,7 @@ MonoBehaviour:
   _timeBetweenSpawns: 0.05
   _castle: {fileID: 1402729768}
   _initialResources:
-    bodyPrice: 10
+    bodyPrice: 9
     bloodPrice: 0
   _tilePrefab: {fileID: 7562894851678332238, guid: 8ed5b9d31768877409b23bc26bd753f5, type: 3}
   _tileSize: 5
@@ -569,25 +569,18 @@ MonoBehaviour:
     TotalRandomEnemies: 0
     FixedEnemiesInRound:
     - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
-      amount: 5
+      amount: 3
     - enemy: {fileID: 11400000, guid: cf46a9e792bef974fac291d5848bb3f2, type: 2}
       amount: 1
-  - RandomEnemiesInRound: []
-    TotalRandomEnemies: 0
-    FixedEnemiesInRound:
-    - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
-      amount: 6
-    - enemy: {fileID: 11400000, guid: cf46a9e792bef974fac291d5848bb3f2, type: 2}
-      amount: 4
   - RandomEnemiesInRound:
-    - enemy: {fileID: 0}
+    - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
       Probability: 0
     TotalRandomEnemies: 0
     FixedEnemiesInRound:
     - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
-      amount: 6
+      amount: 5
     - enemy: {fileID: 11400000, guid: cf46a9e792bef974fac291d5848bb3f2, type: 2}
-      amount: 4
+      amount: 3
   _freePlay:
     RandomEnemiesInRound:
     - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
@@ -636,8 +629,8 @@ MonoBehaviour:
   - unitType: 2
     unitPrefab: {fileID: 443447381351863103, guid: 51a2ed3177c1bca47866b667130d5963, type: 3}
     price:
-      bodyPrice: 10
-      bloodPrice: 0
+      bodyPrice: 6
+      bloodPrice: 2
   - unitType: 4
     unitPrefab: {fileID: 7148454188158189209, guid: 5c248d0829bce914396e511683a2a249, type: 3}
     price:
