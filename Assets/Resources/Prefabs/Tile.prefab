@@ -286,8 +286,8 @@ MonoBehaviour:
   _underCastleMaterial: {fileID: 2100000, guid: 3a536a52945b67c41a350c2cb7bd9a7d, type: 2}
   _highlightEffectGameObject: {fileID: 1369364915867634623}
   _demolishCost:
-    bodyPrice: 0
-    bloodPrice: 0
+    bodyPrice: 6
+    bloodPrice: 5
   _constructSound:
     Guid:
       Data1: 0
