@@ -15,7 +15,7 @@ public class LightningSpell : BaseSpell
     /// </summary>
     protected override void Effect(Vector3 targetPosition)
     {
-        Hittable enemy = GameManager.Instance.GetHighestHealthEnemy();
+        Hittable enemy = GameManager.Instance.GetHighestHealthEnemy(transform.position);
         if (enemy == null) return;
 
         GameObject lightning = Instantiate(_lightningPrefab, enemy.transform.position, Quaternion.identity);

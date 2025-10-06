@@ -32,7 +32,7 @@ public class HealingAttack : BaseAttack
                 case TargetingPriorities.Castle:
                     throw new System.Exception("Invalid targeting priority.");
                 case TargetingPriorities.HighestHealth:
-                    return GameManager.Instance.GetHighestHealthEnemy(exclude);
+                    return GameManager.Instance.GetHighestHealthEnemy(transform.position,exclude);
                 default:
                     throw new System.Exception("Invalid targeting priority.");
             }

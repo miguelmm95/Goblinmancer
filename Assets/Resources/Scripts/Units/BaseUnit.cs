@@ -15,6 +15,7 @@ public abstract class BaseUnit : Hittable
     public bool Dead => _dead;
     [SerializeField] protected float _movementSpeed = 10f;
     [SerializeField] protected float _cooldownBetweenAttacks = 0.2f;
+    [SerializeField] float _retargetFrequecy = 1f;
     [SerializeField] protected float _spawnTweenDuration = 1f;
     [SerializeField] protected Animator _animator;
     [SerializeField] protected float _stepHeight = 0.5f;
@@ -169,6 +170,7 @@ public abstract class BaseUnit : Hittable
         {
             attack.paused = false;
         }
+        StartCoroutine(RetargetCoroutine());
     }
 
     /// <summary>
@@ -249,6 +251,14 @@ public abstract class BaseUnit : Hittable
                     transform.position -= Vector3.up * _stepHeight * Time.deltaTime / (_stepDuration / 2);
                 yield return new WaitForEndOfFrame();
             }
+        }
+    }
+    IEnumerator RetargetCoroutine()
+    {
+        while (!_dead && !_paused)
+        {
+            yield return new WaitForSeconds(_retargetFrequecy);
+            FindTarget();
         }
     }
 }

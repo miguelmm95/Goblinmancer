@@ -364,7 +364,7 @@ public class GameManager : MonoBehaviour
     {
         if (_alliedUnits.Count == 0) return GetClosestTower(position, exclude);
 
-        Hittable highestHealthUnit = null;
+        List<Hittable> highestHealthUnits = new List<Hittable>();
         float highestHealth = -Mathf.Infinity;
         foreach (BaseUnit unit in _alliedUnits)
         {
@@ -373,13 +373,37 @@ public class GameManager : MonoBehaviour
             if (unit.MaxHealth > highestHealth)
             {
                 highestHealth = unit.MaxHealth;
-                highestHealthUnit = unit;
+                highestHealthUnits.Clear();
+                highestHealthUnits.Add(unit);
+            }
+            else if (unit.MaxHealth == highestHealth)
+            {
+                highestHealthUnits.Add(unit);
             }
         }
 
-        if (highestHealthUnit == null) return GetClosestTower(position);
+        if (highestHealthUnits.Count == 0) return GetClosestTower(position);
 
-        return highestHealthUnit;
+        if (highestHealthUnits.Count > 1)
+        {
+            // If multiple units have the same highest health, return the closest one
+            Hittable closestUnit = null;
+            float closestDistance = Mathf.Infinity;
+
+            foreach (Hittable unit in highestHealthUnits)
+            {
+                float distanceSqr = Vector3.SqrMagnitude(position - unit.transform.position);
+                if (distanceSqr < closestDistance)
+                {
+                    closestDistance = distanceSqr;
+                    closestUnit = unit;
+                }
+            }
+
+            return closestUnit;
+        }
+
+        return highestHealthUnits[0];
     }
 
     /// <summary>
@@ -387,7 +411,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <param name="position"></param>
     /// <returns></returns>
-    public Hittable GetHighestHealthEnemy(Hittable exclude = null)
+    public Hittable GetHighestHealthEnemy(Vector3 position, Hittable exclude = null)
     {
         if (_enemyUnits.Count == 0)
         {
@@ -395,7 +419,7 @@ public class GameManager : MonoBehaviour
             return null;
         }
 
-        Hittable highestHealthUnit = null;
+        List<Hittable> highestHealthUnits = new List<Hittable>();
         float highestHealth = -Mathf.Infinity;
         foreach (BaseUnit unit in _enemyUnits)
         {
@@ -404,17 +428,40 @@ public class GameManager : MonoBehaviour
             if (unit.MaxHealth > highestHealth)
             {
                 highestHealth = unit.MaxHealth;
-                highestHealthUnit = unit;
+                highestHealthUnits.Clear();
+                highestHealthUnits.Add(unit);
+            }
+            else if (unit.MaxHealth == highestHealth)
+            {
+                highestHealthUnits.Add(unit);
             }
         }
 
-        if (highestHealthUnit == null)
+        if (highestHealthUnits.Count == 0) 
         {
             EndRound();
             return null;
         }
+        
+        if (highestHealthUnits.Count > 1)
+        {
+            Hittable closestUnit = null;
+            float closestDistance = Mathf.Infinity;
 
-        return highestHealthUnit;
+            foreach (Hittable unit in highestHealthUnits)
+            {
+                float distanceSqr = Vector3.SqrMagnitude(position - unit.transform.position);
+                if (distanceSqr < closestDistance)
+                {
+                    closestDistance = distanceSqr;
+                    closestUnit = unit;
+                }
+            }
+
+            return closestUnit;
+        }
+
+        return highestHealthUnits[0];
     }
 
     /// <summary>

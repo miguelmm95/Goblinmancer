@@ -52,7 +52,7 @@ public class BaseAttack : MonoBehaviour
                 case TargetingPriorities.Castle:
                     throw new System.Exception("Allies cannot target the castle.");
                 case TargetingPriorities.HighestHealth:
-                    return GameManager.Instance.GetHighestHealthEnemy();
+                    return GameManager.Instance.GetHighestHealthEnemy(transform.position);
                 default:
                     throw new System.Exception("Invalid targeting priority.");
             }
