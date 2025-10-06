@@ -579,6 +579,15 @@ MonoBehaviour:
       amount: 6
     - enemy: {fileID: 11400000, guid: cf46a9e792bef974fac291d5848bb3f2, type: 2}
       amount: 4
+  - RandomEnemiesInRound:
+    - enemy: {fileID: 0}
+      Probability: 0
+    TotalRandomEnemies: 0
+    FixedEnemiesInRound:
+    - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
+      amount: 6
+    - enemy: {fileID: 11400000, guid: cf46a9e792bef974fac291d5848bb3f2, type: 2}
+      amount: 4
   _freePlay:
     RandomEnemiesInRound:
     - enemy: {fileID: 11400000, guid: 2f351b5047530244a99f7d67febf84af, type: 2}
@@ -622,8 +631,8 @@ MonoBehaviour:
   - unitType: 3
     unitPrefab: {fileID: 5665511103590708095, guid: 5debbbc0a0fe56641b6aab089023c08b, type: 3}
     price:
-      bodyPrice: 1
-      bloodPrice: 0
+      bodyPrice: 3
+      bloodPrice: 5
   - unitType: 2
     unitPrefab: {fileID: 443447381351863103, guid: 51a2ed3177c1bca47866b667130d5963, type: 3}
     price:
@@ -638,8 +647,8 @@ MonoBehaviour:
   - spellType: 0
     spellPrefab: {fileID: 5932067281995074945, guid: 5247902cedd2fa64f8ca645afc38fb99, type: 3}
     price:
-      bodyPrice: 5
-      bloodPrice: 15
+      bodyPrice: 2
+      bloodPrice: 5
   - spellType: 1
     spellPrefab: {fileID: 4107687205794462187, guid: 3c46edcd9f3dd5b44ba8476f4e296016, type: 3}
     price:
@@ -654,7 +663,7 @@ MonoBehaviour:
   - spellType: 0
     spellPrefab: {fileID: 5932067281995074945, guid: 5247902cedd2fa64f8ca645afc38fb99, type: 3}
     price:
-      bodyPrice: 1
+      bodyPrice: 0
       bloodPrice: 5
   - spellType: 1
     spellPrefab: {fileID: 4107687205794462187, guid: 3c46edcd9f3dd5b44ba8476f4e296016, type: 3}
@@ -680,8 +689,8 @@ MonoBehaviour:
   - towerType: 2
     towerPrefab: {fileID: 3668697348392549827, guid: d0abf1f66108d3b46934362f6a46037a, type: 3}
     price:
-      bodyPrice: 5
-      bloodPrice: 12
+      bodyPrice: 10
+      bloodPrice: 20
   - towerType: 3
     towerPrefab: {fileID: 9047792337331519980, guid: 5e404a6f963bf524396187839ffd6e2d, type: 3}
     price:

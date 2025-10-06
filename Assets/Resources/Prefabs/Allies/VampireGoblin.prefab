@@ -123,7 +123,7 @@ MonoBehaviour:
   paused: 1
   isAlly: 0
   _damage: 3
-  _attackCooldown: 6
+  _attackCooldown: 4
   _range: 1
   _targetingPriority: 0
   _attackSound:
@@ -134,7 +134,7 @@ MonoBehaviour:
       Data4: 0
     Path: 
   _healingPerHit: 3
-  _bloodPerHit: 5
+  _bloodPerHit: 4
 --- !u!1001 &3658837869249458719
 PrefabInstance:
   m_ObjectHideFlags: 0

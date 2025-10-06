@@ -310,8 +310,8 @@ MonoBehaviour:
     Path: event:/Fireball
   _fireballPrefab: {fileID: 1297617087594033831, guid: 9105ee18496c79540aec0c513c22c360, type: 3}
   _explosionPrefab: {fileID: 4686466795568060880, guid: c7e48076fa8d11e44aa7a2ea8b8a1fa9, type: 3}
-  _explosionRadius: 5
-  _damage: 20
+  _explosionRadius: 6
+  _damage: 5
 --- !u!1 &4053052581657761018
 GameObject:
   m_ObjectHideFlags: 0
