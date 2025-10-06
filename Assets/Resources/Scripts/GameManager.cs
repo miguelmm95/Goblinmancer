@@ -49,12 +49,15 @@ public class GameManager : MonoBehaviour
     List<EnemyUnit> _enemyUnits = new List<EnemyUnit>();
     List<BaseTower> _towers = new List<BaseTower>();
     List<Cemetery> _cemeteries = new List<Cemetery>();
+    bool _gameOver = false;
     int _currentRound = 0;
     int _blood = 0;
     PhaseEnum _currentPhase = PhaseEnum.Build;
     Tile[] _tiles;
     float _updateGoblinSoundsTimer = 0f;
     bool _roundEnding = false;
+    float _roundCheckTimer = 0f;
+    float _updateRoundCheckInterval = 1f;
     void Awake()
     {
         if (Instance == null)
@@ -84,12 +87,20 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(_castle == null)
+        {
+            LoseTheGame();
+        }
         if (_currentPhase == PhaseEnum.Combat)
         {
             if (_enemyUnits.Count == 0)
             {
                 EndRound();
             }
+        }
+        else if (_currentPhase == PhaseEnum.Build)
+        {
+            _roundEnding = false;
         }
         _updateGoblinSoundsTimer += Time.deltaTime;
         if (_updateGoblinSoundsTimer >= _updateGoblinSoundsInterval)
@@ -98,6 +109,23 @@ public class GameManager : MonoBehaviour
             int goblinCount = GetAllAliveGoblins();
             AudioManager.instance.UpdateGoblinNumber(goblinCount, _maxExpectedGoblin);
         }
+        if (_roundCheckTimer >= _updateRoundCheckInterval)
+        {
+            _roundCheckTimer = 0f;
+            Debug.Log(_roundEnding);
+            if (_currentPhase == PhaseEnum.Combat && !_roundEnding && _enemyUnits.Count > 0)
+            {
+                foreach (EnemyUnit enemy in _enemyUnits)
+                {
+                    if (!enemy.Dead)
+                    {
+                        return;
+                    }
+                }
+                EndRound();
+            }
+        }
+        _roundCheckTimer += Time.deltaTime;
     }
 
     void OnDestroy()
@@ -1009,6 +1037,8 @@ public class GameManager : MonoBehaviour
 
     public void LoseTheGame()
     {
+        if (_gameOver) return;
+        _gameOver = true;
         Debug.Log("You have lost the game!");
         Instantiate(_loseGamePrefab, Vector3.zero, Quaternion.identity);
     }
@@ -1059,13 +1089,18 @@ public class GameManager : MonoBehaviour
             Instantiate(_winningScreenPrefab, Vector3.zero, Quaternion.identity);
         }
 
+        Debug.Log($"Changing phase to Build. Current Round: {_currentRound}");
         _currentPhase = PhaseEnum.Build;
 
+
+        Debug.Log("Updating next round menu...");
         _nextRoundMenu.UpdateEnemyIcons(GetNextRound(), _currentRound + 1);
 
+        Debug.Log("Showing HUD and closing spell casting menu...");
         ShowHUD();
         _spellCastingMenu.CloseMenu();
 
+        Debug.Log("_roundEnding set to false");
         _roundEnding = false;
     }
 

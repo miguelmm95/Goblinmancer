@@ -11,6 +11,7 @@ public class LoseScreen : MonoBehaviour
     }
     public void RestartGame()
     {
-        SceneManager.LoadScene("MainScene");
+        Debug.Log("Restarting game...");Debug.Log("Restarting game...");Debug.Log("Restarting game...");Debug.Log("Restarting game...");Debug.Log("Restarting game...");Debug.Log("Restarting game...");Debug.Log("Restarting game...");Debug.Log("Restarting game...");Debug.Log("Restarting game...");Debug.Log("Restarting game...");
+        SceneManager.LoadScene("MainMenu");
     }
 }
