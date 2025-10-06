@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     PhaseEnum _currentPhase = PhaseEnum.Build;
     Tile[] _tiles;
     float _updateGoblinSoundsTimer = 0f;
+    bool _roundEnding = false;
     void Awake()
     {
         if (Instance == null)
@@ -238,6 +239,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void EndRound()
     {
+        if(_roundEnding) return;
+
+        _roundEnding = true;
+        if (_currentPhase != PhaseEnum.Combat) return;
         AudioManager.instance.ChangePhase();
         foreach (EnemyUnit unit in _enemyUnits)
         {
@@ -260,6 +265,9 @@ public class GameManager : MonoBehaviour
         _alliedUnits.RemoveAll(unit => unit.Dead);
 
         StartCoroutine(DoPortalAnimation());
+
+        
+
     }
 
     /// <summary>
@@ -1000,6 +1008,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Starting portal animation for defeated enemies...");
         foreach (EnemyUnit unit in _enemyUnits)
         {
+            Debug.Log($"Animating portal for {unit.name} at position {unit.transform.position}");
             for (int i = 0; i < unit.BodyReward; i++)
             {
                 AddBody();
@@ -1019,7 +1028,7 @@ public class GameManager : MonoBehaviour
                     Destroy(portal);
                 };
             });
-            yield return new WaitForSeconds(_timeBetweenSpawns);
+            yield return new WaitForSeconds(_timeBetweenSpawns + 0.01f);
         }
         _enemyUnits.Clear();
 
@@ -1032,17 +1041,22 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        Debug.Log("Round ended.");
+
         _currentRound++;
         if (_currentRound == _rounds.Length)
         {
             Debug.Log("All rounds completed!");
         }
+
         _currentPhase = PhaseEnum.Build;
 
         _nextRoundMenu.UpdateEnemyIcons(GetNextRound(), _currentRound + 1);
 
         ShowHUD();
         _spellCastingMenu.CloseMenu();
+
+        _roundEnding = false;
     }
 
     private IEnumerator MapSpawnAnimation()

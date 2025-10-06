@@ -252,6 +252,8 @@ public abstract class BaseUnit : Hittable
                 yield return new WaitForEndOfFrame();
             }
         }
+        _stepping = false;
+        _moving = false;
     }
     IEnumerator RetargetCoroutine()
     {
