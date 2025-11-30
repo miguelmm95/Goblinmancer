@@ -57,6 +57,7 @@ MonoBehaviour:
     Path: event:/GoblinDeath
   _movementSpeed: 6
   _cooldownBetweenAttacks: 0.2
+  _retargetFrequecy: 1
   _spawnTweenDuration: 1
   _animator: {fileID: 8040609503763788218}
   _stepHeight: 0.5
@@ -68,6 +69,7 @@ MonoBehaviour:
       Data3: 198738608
       Data4: 865376899
     Path: event:/Silence
+  _scriptableUnit: {fileID: 11400000, guid: 4a28973ee569b284d9a7e893e4e71691, type: 2}
   cemetery: {fileID: 0}
   spawnSize: {x: 15, y: 15}
   unitType: 0

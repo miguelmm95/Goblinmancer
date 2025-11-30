@@ -120,7 +120,7 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638952932867231973
+  lastModified: 638996885766146336
   FileSizes:
   - Name: 
     Value: 2368
@@ -171,8 +171,8 @@ MonoBehaviour:
     Data3: 803502501
     Data4: 2130731895
   Banks:
-  - {fileID: 5929089086318241556}
   - {fileID: 1537784955045334115}
+  - {fileID: 5929089086318241556}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -226,8 +226,8 @@ MonoBehaviour:
     Data3: 198738608
     Data4: 865376899
   Banks:
-  - {fileID: 5929089086318241556}
   - {fileID: 1537784955045334115}
+  - {fileID: 5929089086318241556}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -359,7 +359,7 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638952932867206907
+  lastModified: 638996885766136325
   FileSizes: []
   Exists: 1
 --- !u!114 &-277732299554232209
@@ -387,7 +387,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 200
+  MaxDistance: 250
   Length: 2117
 --- !u!114 &-85998219760230085
 MonoBehaviour:
@@ -468,7 +468,7 @@ MonoBehaviour:
   - {fileID: -1369290617054388221}
   StringsBanks:
   - {fileID: -5588288919252966754}
-  cacheTime: 638953253380930655
+  cacheTime: 638996885766176301
   cacheVersion: 131632
 --- !u!114 &298832020935282611
 MonoBehaviour:
@@ -518,11 +518,11 @@ MonoBehaviour:
   Banks:
   - {fileID: 1537784955045334115}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 95
   Length: 1128
 --- !u!114 &1537784955045334115
 MonoBehaviour:
@@ -539,7 +539,7 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Game.bank
   Name: Game
   StudioPath: bank:/Game
-  lastModified: 638953253380930655
+  lastModified: 638996885766116349
   FileSizes: []
   Exists: 1
 --- !u!114 &1897413915186756578
@@ -828,7 +828,7 @@ MonoBehaviour:
   Path: Assets/Resources/Audio/Desktop/Menu.bank
   Name: Menu
   StudioPath: bank:/Menu
-  lastModified: 638953026128888757
+  lastModified: 638996885766176301
   FileSizes: []
   Exists: 1
 --- !u!114 &5959793298410340367
@@ -906,11 +906,11 @@ MonoBehaviour:
   Banks:
   - {fileID: 1537784955045334115}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 95
   Length: 0
 --- !u!114 &7488909922889829720
 MonoBehaviour:

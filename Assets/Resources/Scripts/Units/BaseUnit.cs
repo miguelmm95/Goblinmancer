@@ -19,6 +19,7 @@ public abstract class BaseUnit : Hittable
     [SerializeField] protected float _stepHeight = 0.5f;
     [SerializeField] protected float _stepDuration = 0.1f; // Time between steps when moving
     [SerializeField] protected EventReference _stepSound;
+    [SerializeField] ScriptableUnit _scriptableUnit;
     protected float _slowMultiplier = 1f; // Multiplier for movement speed when slowed
     protected float _hastenMultiplier = 1f; // Multiplier for movement speed when hastened
     protected Hittable _target;
@@ -36,6 +37,19 @@ public abstract class BaseUnit : Hittable
     protected override void Start()
     {
         base.Start();
+
+        if (_scriptableUnit != null)
+        {
+            _maxHealth = _scriptableUnit.maxHealth;
+            _size = _scriptableUnit.size;
+            _movementSpeed = _scriptableUnit.movementSpeed;
+            _cooldownBetweenAttacks = _scriptableUnit.cooldownBetweenAttacks;
+            _retargetFrequecy = _scriptableUnit.retargetFrequecy;
+            _spawnTweenDuration = _scriptableUnit.spawnTweenDuration;
+            _stepHeight = _scriptableUnit.stepHeight;
+            _stepDuration = _scriptableUnit.stepDuration;
+        }
+
         _attacks = new List<BaseAttack>(GetComponents<BaseAttack>());
         foreach (var attack in _attacks)
         {
